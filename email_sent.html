@@ -12,9 +12,9 @@
     <title>Yard sale</title>
     <style>
       :root {
-        --sm: 1.4rem;
-        --md: 1.6rem;
-        --lg: 1.8rem;
+        --sm: 1.6rem;
+        --md: 1.8rem;
+        --lg: 2rem;
         --very-light-pink: #c7c7c7;
         --white: #ffffff;
         --text-input-field: #f7f7f7;
@@ -32,35 +32,37 @@
         font-family: "Quicksand", sans-serif;
       }
 
-      .login {
+      .email-sent {
         display: grid;
         place-items: center;
         width: 100%;
         height: 100vh;
       }
 
-      .form-container {
+      .email-sent-container {
         display: grid;
         grid-template-rows: auto 1fr auto;
-        width: 300px;
+        justify-items: center;
+        max-width: 360px;
+        padding: 0 5vw;
       }
 
-      .form-container__img-container {
+      .email-sent-container__logo-container {
         justify-self: center;
         margin-bottom: 40px;
       }
 
-      .form-container__logo {
+      .email-sent-logo {
         width: 150px;
       }
 
-      .form-container__title {
+      .email-sent-container__title {
         text-align: center;
         color: var(--black);
         font-size: var(--lg);
       }
 
-      .form-container__subtitle {
+      .email-sent-container__subtitle {
         text-align: center;
         margin-top: 0;
         margin-bottom: 32px;
@@ -69,28 +71,22 @@
         font-weight: 400;
       }
 
-      .form-container__form {
+      .email-sent-container__email-icon-container {
         display: flex;
-        flex-direction: column;
-      }
-
-      .form-container__label {
-        margin-bottom: 4px;
-        font-size: var(--sm);
-        font-weight: bold;
-      }
-
-      .form-container__input-password {
-        margin-bottom: 12px;
-        padding: 6px;
-        border: none;
-        border-radius: 8px;
-        font-size: var(--md);
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 28px;
+        border-radius: 50%;
         background-color: var(--text-input-field);
-        height: 28px;
+        width: 132px;
+        height: 132px;
       }
 
-      .form-container__submit-button {
+      .email-sent-container__email-icon {
+        width: 80px;
+      }
+
+      .email-sent-container__login-button {
         margin-top: 12px;
         margin-bottom: 30px;
         border: none;
@@ -105,59 +101,66 @@
         cursor: pointer;
       }
 
+      .email-sent-container__resend {
+        margin-top: 0;
+        font-size: var(--sm);
+        font-weight: 400;
+      }
+
+      .email-sent-container__resend-text {
+        color: var(--very-light-pink);
+      }
+
+      .email-sent-container__resend--green {
+        color: var(--hospital-green);
+        text-decoration: none;
+      }
+
       @media (min-width: 640px) {
-        .form-container__logo {
+        .email-sent-logo {
           display: none;
         }
       }
     </style>
   </head>
   <body>
-    <main class="login">
-      <div class="form-container">
-        <figure class="form-container__img-container">
+    <main class="email-sent">
+      <div class="email-sent-container">
+        <figure class="email-sent-container__logo-container">
           <img
-            class="form-container__logo"
+            class="email-sent-logo"
             src="./assets/logos/logo_yard_sale.svg"
             alt="Yard sale logo"
             title="Yard Sale"
           />
         </figure>
 
-        <h1 class="form-container__title">Create a new password</h1>
-        <p class="form-container__subtitle">
-          Enter a new password for your account
+        <h1 class="email-sent-container__title">Email has been sent!</h1>
+        <p class="email-sent-container__subtitle">
+          Please check your inbox for instructions on how to reset the password
         </p>
 
-        <form class="form-container__form" action="/">
-          <label class="form-container__label" for="password">Password</label>
-          <input
-            class="form-container__input-password"
-            type="password"
-            id="password"
-            name="password"
-            placeholder="********"
-            required
+        <figure class="email-sent-container__email-icon-container">
+          <img
+            class="email-sent-container__email-icon"
+            src="./assets/icons/email.svg"
+            alt="email icon"
+            title="Email sent icon"
           />
+        </figure>
 
-          <label class="form-container__label" for="confirm-password"
-            >Re-enter password</label
+        <button class="email-sent-container__login-button">Login</button>
+
+        <p class="email-sent-container__resend">
+          <span class="email-sent-container__resend-text">
+            Didn't receive the email?
+          </span>
+          <a
+            class="email-sent-container__resend email-sent-container__resend--green"
+            href="#"
+            >Resend</a
           >
-          <input
-            class="form-container__input-password"
-            type="password"
-            id="confirm-password"
-            name="confirm-password"
-            placeholder="********"
-            required
-          />
-
-          <input
-            class="form-container__submit-button"
-            type="submit"
-            value="Confirm"
-          />
-        </form>
+        </p>
       </div>
     </main>
   </body>
