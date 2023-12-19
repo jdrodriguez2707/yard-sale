@@ -42,16 +42,18 @@
       .form-container {
         display: grid;
         justify-items: center;
-        width: 80%;
+        width: 90%;
+        height: 100%;
         max-width: 360px;
       }
 
       .form-container__img-container {
+        align-self: end;
         margin-bottom: 40px;
       }
 
       .form-container__logo {
-        width: 150px;
+        width: 200px;
       }
 
       .form-container__form {
@@ -61,7 +63,7 @@
       }
 
       .form-container__label {
-        margin-bottom: 4px;
+        margin-bottom: 8px;
         font-size: var(--sm);
         font-weight: bold;
       }
@@ -102,23 +104,22 @@
       }
 
       .form-container__button--sign-up {
-        position: absolute;
-        bottom: 24px;
+        align-self: end;
+        margin-bottom: 24px;
         border: 1px solid var(--hospital-green);
         color: var(--hospital-green);
         background-color: transparent;
-        width: 80%;
+        width: 100%;
         max-width: 360px;
       }
 
       @media (min-width: 640px) {
-        .form-container__logo {
-          display: none;
+        .form-container {
+          height: initial;
         }
 
-        .form-container__button--sign-up {
-          position: initial;
-          width: 100%;
+        .form-container__logo {
+          display: none;
         }
       }
     </style>

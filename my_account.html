@@ -32,7 +32,7 @@
         font-family: "Quicksand", sans-serif;
       }
 
-      .create-account {
+      .my-account {
         display: grid;
         place-items: center;
         height: 100vh;
@@ -53,7 +53,7 @@
         margin-bottom: 60px;
       }
 
-      .form-container__form, 
+      .form-container__form,
       .form-container__text-field-container {
         display: flex;
         flex-direction: column;
@@ -64,30 +64,26 @@
       }
 
       .form-container__label {
-        margin-bottom: 8px;
+        margin-bottom: 4px;
         font-size: var(--sm);
         font-weight: bold;
       }
 
-      .form-container__input {
+      .form-container__field {
         margin-bottom: 24px;
-        padding: 6px;
-        border: none;
-        border-radius: 8px;
         font-size: var(--md);
-        background-color: var(--text-input-field);
-        height: 28px;
+        color: var(--very-light-pink);
       }
 
       .form-container__edit-button {
-        border: none;
+        border: 1px solid var(--hospital-green);
         margin-bottom: 24px;
         font-family: inherit;
         font-weight: bold;
         font-size: var(--md);
         height: 56px;
-        color: var(--white);
-        background-color: var(--hospital-green);
+        color: var(--hospital-green);
+        background-color: transparent;
         border-radius: 6px;
         cursor: pointer;
       }
@@ -98,58 +94,37 @@
         }
 
         .form-container__edit-button {
-          margin-top: 12px;
+          margin-top: 36px;
           margin-bottom: 0;
         }
       }
     </style>
   </head>
   <body>
-    <main class="create-account">
+    <main class="my-account">
       <div class="form-container">
         <h1 class="form-container__title">My account</h1>
 
         <form class="form-container__form" action="/">
           <div class="form-container__text-field-container">
             <label class="form-container__label" for="name">Name</label>
-            <input
-              class="form-container__input"
-              type="text"
-              id="name"
-              name="name"
-              placeholder="Your name"
-              required
-            />
+            <p class="form-container__field">Your name</p>
 
             <label class="form-container__label" for="email">
               Email address
             </label>
-            <input
-              class="form-container__input"
-              type="email"
-              id="email"
-              name="email"
-              placeholder="youremail@gmail.com"
-              required
-            />
+            <p class="form-container__field">youremail@gmail.com</p>
 
             <label class="form-container__label" for="password">
               Password
             </label>
-            <input
-              class="form-container__input"
-              type="password"
-              id="password"
-              name="password"
-              placeholder="********"
-              required
-            />
+            <p class="form-container__field">********</p>
           </div>
 
           <input
             class="form-container__edit-button"
             type="submit"
-            value="Create"
+            value="Edit"
           />
         </form>
       </div>
