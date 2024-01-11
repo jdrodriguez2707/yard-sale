@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+    <style>
+      :root {
+        --sm: 1.6rem;
+        --md: 1.8rem;
+        --lg: 2rem;
+        --very-light-pink: #c7c7c7;
+        --white: #ffffff;
+        --text-input-field: #f7f7f7;
+        --black: #000000;
+        --hospital-green: #acd9b2;
+        --dark: #232830;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        font-size: 62.5%;
+      }
+
+      body {
+        font-family: "Quicksand", sans-serif;
+      }
+
+      .navbar__container {
+        position: sticky;
+        top: 0;
+        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.05);
+        width: 100%;
+        background-color: #ffffff;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 18px;
+      }
+
+      .navbar__categories,
+      .navbar__email-container {
+        display: none;
+      }
+
+      .navbar__icon-sp-cart-container {
+        position: relative;
+      }
+
+      .navbar__product-number {
+        position: absolute;
+        top: -3px;
+        right: -8px;
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+
+      @media (min-width: 980px) {
+        .navbar {
+          padding: 12px 52px;
+        }
+
+        .navbar__icon-menu-container {
+          display: none;
+        }
+
+        .navbar__left,
+        .navbar__right {
+          display: flex;
+          align-items: center;
+        }
+
+        .navbar__categories,
+        .navbar__email-container {
+          display: flex;
+        }
+
+        .navbar__logo {
+          width: 144px;
+          height: 30px;
+        }
+
+        .navbar__categories {
+          margin-left: 52px;
+          list-style: none;
+        }
+
+        .navbar__item {
+          margin-right: 20px;
+        }
+
+        .navbar__link {
+          font-size: var(--sm);
+          color: var(--very-light-pink);
+          text-decoration: none;
+        }
+
+        .navbar__link:focus,
+        .navbar__link:hover {
+          color: var(--hospital-green);
+          border: 1px solid var(--hospital-green);
+          border-radius: 10px;
+          padding: 4px 12px;
+        }
+
+        .navbar__email-container {
+          margin-right: 30px;
+        }
+
+        .navbar__email {
+          margin-right: 4px;
+          font-size: 1.4rem;
+          color: var(--black);
+          font-weight: 300;
+        }
+
+        .navbar__email-container {
+          align-items: baseline;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="navbar__container">
+      <nav class="navbar">
+        <figure class="navbar__icon-menu-container">
+          <img
+            class="navbar__icon"
+            src="./assets/icons/icon_menu.svg"
+            alt="Icon menu"
+          />
+        </figure>
+        <div class="navbar__left">
+          <figure class="navbar__logo-container">
+            <img
+              class="navbar__logo"
+              src="./assets/logos/logo_yard_sale.svg"
+              alt="Yard Sale"
+            />
+          </figure>
+          <ul class="navbar__categories">
+            <li class="navbar__item">
+              <a class="navbar__link" href="#">All</a>
+            </li>
+            <li class="navbar__item">
+              <a class="navbar__link" href="#">Clothes</a>
+            </li>
+            <li class="navbar__item">
+              <a class="navbar__link" href="#">Electronics</a>
+            </li>
+            <li class="navbar__item">
+              <a class="navbar__link" href="#">Furniture</a>
+            </li>
+            <li class="navbar__item">
+              <a class="navbar__link" href="#">Toys</a>
+            </li>
+            <li class="navbar__item">
+              <a class="navbar__link" href="#">Others</a>
+            </li>
+          </ul>
+        </div>
+        <div class="navbar__right">
+          <div class="navbar__email-container">
+            <p class="navbar__email">youremail@gmail.com</p>
+            <figure class="navbar__icon-expand-container">
+              <img
+                class="navbar__icon-expand"
+                src="./assets/icons/Path.svg"
+                alt="Expand more"
+              />
+            </figure>
+          </div>
+          <figure class="navbar__icon-sp-cart-container">
+            <img
+              class="navbar__icon-shopping-cart"
+              src="./assets/icons/icon_shopping_cart_notification.svg"
+              alt="icon menu"
+            />
+            <p class="navbar__product-number">5</p>
+          </figure>
+        </div>
+      </nav>
+    </header>
+  </body>
+</html>
