@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Yard Sale</title>
+    <style>
+      :root {
+        --sm: 1.6rem;
+        --md: 1.8rem;
+        --lg: 2rem;
+        --very-light-pink: #c7c7c7;
+        --white: #ffffff;
+        --text-input-field: #f7f7f7;
+        --black: #000000;
+        --hospital-green: #acd9b2;
+        --dark: #232830;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        font-size: 62.5%;
+      }
+
+      body {
+        font-family: "Quicksand", sans-serif;
+      }
+
+      .main-container {
+        display: grid;
+        justify-items: center;
+        width: 100%;
+        height: 100vh;
+      }
+
+      .my-order {
+        padding: 16px;
+        width: inherit;
+        max-width: 500px;
+      }
+
+      .my-order__title {
+        display: none;
+        margin-bottom: 48px;
+        font-size: var(--lg);
+      }
+
+      .my-order__content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 28px;
+        font-size: var(--sm);
+        font-weight: bold;
+        color: var(--black);
+      }
+
+      .my-order__info {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .my-order__article-number {
+        font-size: 1.4rem;
+        font-weight: 400;
+        color: var(--very-light-pink);
+      }
+
+      .my-order__pricearrow-container {
+        display: flex;
+        gap: 24px;
+      }
+
+      @media (min-width: 640px) {
+        .main-container {
+          align-items: center;
+        }
+
+        .my-order__title {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="main-container">
+      <div class="my-order">
+        <h1 class="my-order__title">My orders</h1>
+        <div class="my-order__content">
+          <p class="my-order__info">
+            04.25.2024
+            <span class="my-order__article-number">6 articles</span>
+          </p>
+          <div class="my-order__pricearrow-container">
+            <p>$ 120.00</p>
+            <figure>
+              <img
+                src="./assets/icons/flechita.svg"
+                alt="arrow to access the product"
+              />
+            </figure>
+          </div>
+        </div>
+        <div class="my-order__content">
+          <p class="my-order__info">
+            04.25.2024
+            <span class="my-order__article-number">6 articles</span>
+          </p>
+          <div class="my-order__pricearrow-container">
+            <p>$ 120.00</p>
+            <figure>
+              <img
+                src="./assets/icons/flechita.svg"
+                alt="arrow to access the product"
+              />
+            </figure>
+          </div>
+        </div>
+        <div class="my-order__content">
+          <p class="my-order__info">
+            04.25.2024
+            <span class="my-order__article-number">6 articles</span>
+          </p>
+          <div class="my-order__pricearrow-container">
+            <p>$ 120.00</p>
+            <figure>
+              <img
+                src="./assets/icons/flechita.svg"
+                alt="arrow to access the product"
+              />
+            </figure>
+          </div>
+        </div>
+        <div class="my-order__content">
+          <p class="my-order__info">
+            04.25.2024
+            <span class="my-order__article-number">6 articles</span>
+          </p>
+          <div class="my-order__pricearrow-container">
+            <p>$ 120.00</p>
+            <figure>
+              <img
+                src="./assets/icons/flechita.svg"
+                alt="arrow to access the product"
+              />
+            </figure>
+          </div>
+        </div>
+        <div class="my-order__content">
+          <p class="my-order__info">
+            04.25.2024
+            <span class="my-order__article-number">6 articles</span>
+          </p>
+          <div class="my-order__pricearrow-container">
+            <p>$ 120.00</p>
+            <figure>
+              <img
+                src="./assets/icons/flechita.svg"
+                alt="arrow to access the product"
+              />
+            </figure>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
