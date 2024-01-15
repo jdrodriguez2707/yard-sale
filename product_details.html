@@ -36,44 +36,198 @@
       body {
         font-family: "Quicksand", sans-serif;
       }
+
+      .product-container {
+        display: grid;
+        justify-items: center;
+        width: 100%;
+        height: 100vh;
+      }
+
+      .product-container__img-container {
+        margin-bottom: 32px;
+      }
+
+      .product-container__product-img {
+        margin-bottom: 12px;
+        border-radius: 0 0 15px 15px;
+        width: 100%;
+        height: 40vh;
+        max-height: 500px;
+        object-fit: cover;
+      }
+
+      .product-container__close-icon-container {
+        display: none;
+      }
+
+      .product-container__sliding-circles {
+        display: flex;
+        justify-content: center;
+      }
+
+      .product-container__circle {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        margin-right: 6px;
+        background-color: #f1f1f1;
+        cursor: pointer;
+      }
+
+      .product-container__circle--selected {
+        background-color: var(--hospital-green);
+      }
+
+      .product-container__product-details {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 0 20px;
+        width: 100%;
+      }
+
+      .product-container__product-info {
+        margin-bottom: 56px;
+      }
+
+      .product-container__product-price {
+        display: flex;
+        flex-direction: column;
+        font-size: var(--md);
+        font-weight: bold;
+        color: var(--black);
+        margin-bottom: 20px;
+      }
+
+      .product-container__product-name,
+      .product-container__product-description {
+        font-size: var(--sm);
+        color: var(--very-light-pink);
+        font-weight: 400;
+      }
+
+      .product-container__product-description {
+        color: var(--black);
+        font-weight: 300;
+      }
+
+      .product-container__add-to-cart-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+        border: none;
+        border-radius: 6px;
+        font-family: inherit;
+        font-weight: bold;
+        font-size: var(--md);
+        width: 100%;
+        height: 56px;
+        color: var(--white);
+        background-color: var(--hospital-green);
+        cursor: pointer;
+      }
+
+      .product-container__sp-cart-container {
+        margin-right: 8px;
+      }
+
+      .product-container__shopping-cart-icon {
+        margin-top: 8px;
+      }
+
+      @media (min-width: 980px) {
+        .product-container {
+          position: fixed;
+          top: 0;
+          right: 0;
+          border-radius: 5px;
+          max-width: 400px;
+          background: #fff;
+          box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.12);
+        }
+
+        .product-container__img-container {
+          position: relative;
+        }
+
+        .product-container__close-icon-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: absolute;
+          left: 12px;
+          top: 12px;
+          border-radius: 50%;
+          background-color: var(--white);
+          width: 40px;
+          height: 40px;
+          cursor: pointer;
+        }
+
+        .product-container__product-price,
+        .product-container__add-to-cart-button {
+          font-size: var(--lg);
+        }
+
+        .product-container__product-name,
+        .product-container__product-description {
+          font-size: var(--md);
+        }
+      }
     </style>
   </head>
   <body>
     <aside class="product-container">
       <figure class="product-container__img-container">
         <img
-          class="product-details__product-img"
+          class="product-container__product-img"
           src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
           alt="A bike"
         />
         <div class="product-container__close-icon-container">
-          <img src="./assets/icons/icon_close.png" alt="Close icon" />
+          <img
+            class="product-container__close-icon"
+            src="./assets/icons/icon_close.png"
+            alt="Close icon"
+          />
+        </div>
+
+        <div class="product-container__sliding-circles">
+          <div
+            class="product-container__circle product-container__circle--selected"
+          ></div>
+          <div class="product-container__circle"></div>
+          <div class="product-container__circle"></div>
         </div>
       </figure>
 
       <div class="product-container__product-details">
-        <p class="product-container__product-price">
-          $120,00
-          <span class="product-container__product-name">Super bike</span>
-        </p>
-        <p class="product-container__product-description">
-          Discover new trails and conquer challenging terrains with our
-          "Adventure Explorer" All-Terrain Mountain Bike. Designed for cycling
-          enthusiasts seeking thrilling adventures, this bike combines
-          exceptional performance with a rugged and stylish design.
-        </p>
-      </div>
+        <div class="product-container__product-info">
+          <p class="product-container__product-price">
+            $120,00
+            <span class="product-container__product-name">Super bike</span>
+          </p>
+          <p class="product-container__product-description">
+            Discover new trails and conquer challenging terrains with our
+            "Adventure Explorer" All-Terrain Mountain Bike. Designed for cycling
+            enthusiasts seeking thrilling adventures, this bike combines
+            exceptional performance with a rugged and stylish design.
+          </p>
+        </div>
 
-      <button class="product-container__add-to-cart-button">
-        <figure class="product-container__sp-cart-container">
-          <img
-            class="product-container__sp-cart-icon"
-            src="./assets/icons/icon_shopping_cart.svg"
-            alt="Add to cart icon"
-          />
-        </figure>
-        Add to cart
-      </button>
+        <button class="product-container__add-to-cart-button">
+          <figure class="product-container__sp-cart-container">
+            <img
+              class="product-container__shopping-cart-icon"
+              src="./assets/icons/icon_shopping_cart.svg"
+              alt="shopping cart icon"
+            />
+          </figure>
+          Add to cart
+        </button>
+      </div>
     </aside>
   </body>
 </html>
