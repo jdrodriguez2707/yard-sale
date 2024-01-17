@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+    <style>
+      :root {
+        --sm: 1.6rem;
+        --md: 1.8rem;
+        --lg: 2rem;
+        --very-light-pink: #c7c7c7;
+        --white: #ffffff;
+        --text-input-field: #f7f7f7;
+        --black: #000000;
+        --hospital-green: #acd9b2;
+        --dark: #232830;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        font-size: 62.5%;
+      }
+
+      body {
+        font-family: "Quicksand", sans-serif;
+      }
+
+      .aside-container {
+        display: grid;
+        justify-items: center;
+        position: absolute;
+        width: 100%;
+        min-height: 100%;
+        background: #fff;
+      }
+
+      .shopping-cart {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 24px 16px;
+        width: inherit;
+        max-width: 400px;
+      }
+
+      .shopping-cart__title-arrow-container {
+        display: none;
+      }
+
+      .shopping-cart__title {
+        font-size: var(--lg);
+      }
+
+      .shopping-cart__product-container {
+        padding-right: 20px;
+        overflow-y: auto;
+        height: 60vh;
+      }
+
+      .shopping-cart__product {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .shopping-cart__product-image-container {
+        display: flex;
+        align-items: center;
+      }
+
+      .shopping-cart__product-image {
+        margin-right: 16px;
+        border-radius: 20px;
+        width: 75px;
+        height: 75px;
+        object-fit: cover;
+      }
+
+      .shopping-cart__product-name {
+        margin-right: 4px;
+        text-wrap: wrap;
+        font-size: 1.4rem;
+        font-weight: 400;
+        color: var(--very-light-pink);
+      }
+
+      .shopping-cart__price-container {
+        display: flex;
+        align-items: baseline;
+      }
+
+      .shopping-cart__product-price {
+        margin-right: 16px;
+        font-size: var(--sm);
+        font-weight: bold;
+        text-wrap: nowrap;
+      }
+
+      .shopping-cart__total-to-pay-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        padding: 28px 16px;
+        border-radius: 10px;
+        font-size: var(--sm);
+        font-weight: bold;
+        color: var(--black);
+        background-color: var(--text-input-field);
+      }
+
+      .shopping-cart__button-checkout {
+        border: none;
+        border-radius: 6px;
+        font-family: inherit;
+        font-weight: bold;
+        font-size: var(--md);
+        width: 100%;
+        height: 56px;
+        color: var(--white);
+        background-color: var(--hospital-green);
+        cursor: pointer;
+      }
+
+      @media (min-width: 980px) {
+        .aside-container {
+          top: 0;
+          right: 0;
+          border-radius: 5px;
+          box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.12);
+          width: 400px;
+          height: auto;
+        }
+
+        .shopping-cart__title-arrow-container {
+          display: flex;
+          align-items: baseline;
+        }
+
+        .shopping-cart__arrow-left {
+          cursor: pointer;
+        }
+
+        .shopping-cart__title {
+          margin-left: 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <aside class="aside-container">
+      <div class="shopping-cart">
+        <div class="shopping-cart__title-arrow-container">
+          <figure class="shopping-cart__arrow-left-container">
+            <img
+              class="shopping-cart__arrow-left"
+              src="./assets/icons/arrow-left.svg"
+              alt="Arrow left"
+            />
+          </figure>
+
+          <h2 class="shopping-cart__title">Shopping cart</h2>
+        </div>
+        <div class="shopping-cart__product-container">
+          <div class="shopping-cart__product">
+            <figure class="shopping-cart__product-image-container">
+              <img
+                src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                alt="A bike"
+                class="shopping-cart__product-image"
+              />
+              <figcaption class="shopping-cart__product-name">Bike</figcaption>
+            </figure>
+            <div class="shopping-cart__price-container">
+              <p class="shopping-cart__product-price">$ 120.00</p>
+              <figure class="shopping-cart__delete-icon-container">
+                <img
+                  class="shopping-cart__delete-icon"
+                  src="./assets/icons/icon_close.png"
+                  alt="Delete icon"
+                />
+              </figure>
+            </div>
+          </div>
+          <div class="shopping-cart__product">
+            <figure class="shopping-cart__product-image-container">
+              <img
+                src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                alt="A bike"
+                class="shopping-cart__product-image"
+              />
+              <figcaption class="shopping-cart__product-name">Bike</figcaption>
+            </figure>
+            <div class="shopping-cart__price-container">
+              <p class="shopping-cart__product-price">$ 120.00</p>
+              <figure class="shopping-cart__delete-icon-container">
+                <img
+                  class="shopping-cart__delete-icon"
+                  src="./assets/icons/icon_close.png"
+                  alt="Delete icon"
+                />
+              </figure>
+            </div>
+          </div>
+          <div class="shopping-cart__product">
+            <figure class="shopping-cart__product-image-container">
+              <img
+                src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                alt="A bike"
+                class="shopping-cart__product-image"
+              />
+              <figcaption class="shopping-cart__product-name">Bike</figcaption>
+            </figure>
+            <div class="shopping-cart__price-container">
+              <p class="shopping-cart__product-price">$ 120.00</p>
+              <figure class="shopping-cart__delete-icon-container">
+                <img
+                  class="shopping-cart__delete-icon"
+                  src="./assets/icons/icon_close.png"
+                  alt="Delete icon"
+                />
+              </figure>
+            </div>
+          </div>
+          <div class="shopping-cart__product">
+            <figure class="shopping-cart__product-image-container">
+              <img
+                src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                alt="A bike"
+                class="shopping-cart__product-image"
+              />
+              <figcaption class="shopping-cart__product-name">Bike</figcaption>
+            </figure>
+            <div class="shopping-cart__price-container">
+              <p class="shopping-cart__product-price">$ 120.00</p>
+              <figure class="shopping-cart__delete-icon-container">
+                <img
+                  class="shopping-cart__delete-icon"
+                  src="./assets/icons/icon_close.png"
+                  alt="Delete icon"
+                />
+              </figure>
+            </div>
+          </div>
+          <!-- <div class="shopping-cart__product">
+            <figure class="shopping-cart__product-image-container">
+              <img
+                src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                alt="A bike"
+                class="shopping-cart__product-image"
+              />
+              <figcaption class="shopping-cart__product-name">Bike</figcaption>
+            </figure>
+            <div class="shopping-cart__price-container">
+              <p class="shopping-cart__product-price">$ 120.00</p>
+              <figure class="shopping-cart__delete-icon-container">
+                <img
+                  class="shopping-cart__delete-icon"
+                  src="./assets/icons/icon_close.png"
+                  alt="Delete icon"
+                />
+              </figure>
+            </div>
+          </div>
+          <div class="shopping-cart__product">
+            <figure class="shopping-cart__product-image-container">
+              <img
+                src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                alt="A bike"
+                class="shopping-cart__product-image"
+              />
+              <figcaption class="shopping-cart__product-name">Bike</figcaption>
+            </figure>
+            <div class="shopping-cart__price-container">
+              <p class="shopping-cart__product-price">$ 120.00</p>
+              <figure class="shopping-cart__delete-icon-container">
+                <img
+                  class="shopping-cart__delete-icon"
+                  src="./assets/icons/icon_close.png"
+                  alt="Delete icon"
+                />
+              </figure>
+            </div>
+          </div>
+          <div class="shopping-cart__product">
+            <figure class="shopping-cart__product-image-container">
+              <img
+                src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                alt="A bike"
+                class="shopping-cart__product-image"
+              />
+              <figcaption class="shopping-cart__product-name">Bike</figcaption>
+            </figure>
+            <div class="shopping-cart__price-container">
+              <p class="shopping-cart__product-price">$ 120.00</p>
+              <figure class="shopping-cart__delete-icon-container">
+                <img
+                  class="shopping-cart__delete-icon"
+                  src="./assets/icons/icon_close.png"
+                  alt="Delete icon"
+                />
+              </figure>
+            </div>
+          </div>
+          <div class="shopping-cart__product">
+            <figure class="shopping-cart__product-image-container">
+              <img
+                src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                alt="A bike"
+                class="shopping-cart__product-image"
+              />
+              <figcaption class="shopping-cart__product-name">Bike</figcaption>
+            </figure>
+            <div class="shopping-cart__price-container">
+              <p class="shopping-cart__product-price">$ 120.00</p>
+              <figure class="shopping-cart__delete-icon-container">
+                <img
+                  class="shopping-cart__delete-icon"
+                  src="./assets/icons/icon_close.png"
+                  alt="Delete icon"
+                />
+              </figure>
+            </div>
+          </div>
+          <div class="shopping-cart__product">
+            <figure class="shopping-cart__product-image-container">
+              <img
+                src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                alt="A bike"
+                class="shopping-cart__product-image"
+              />
+              <figcaption class="shopping-cart__product-name">Bike</figcaption>
+            </figure>
+            <div class="shopping-cart__price-container">
+              <p class="shopping-cart__product-price">$ 120.00</p>
+              <figure class="shopping-cart__delete-icon-container">
+                <img
+                  class="shopping-cart__delete-icon"
+                  src="./assets/icons/icon_close.png"
+                  alt="Delete icon"
+                />
+              </figure>
+            </div>
+          </div>
+          <div class="shopping-cart__product">
+            <figure class="shopping-cart__product-image-container">
+              <img
+                src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                alt="A bike"
+                class="shopping-cart__product-image"
+              />
+              <figcaption class="shopping-cart__product-name">Bike</figcaption>
+            </figure>
+            <div class="shopping-cart__price-container">
+              <p class="shopping-cart__product-price">$ 120.00</p>
+              <figure class="shopping-cart__delete-icon-container">
+                <img
+                  class="shopping-cart__delete-icon"
+                  src="./assets/icons/icon_close.png"
+                  alt="Delete icon"
+                />
+              </figure>
+            </div>
+          </div> -->
+        </div>
+
+        <div class="shopping-cart__total-value-container">
+          <div class="shopping-cart__total-to-pay-container">
+            <p class="shopping-cart__total-text">Total</p>
+            <p class="shopping-cart__total-value">$ 560.00</p>
+          </div>
+
+          <button class="shopping-cart__button-checkout">Checkout</button>
+        </div>
+      </div>
+    </aside>
+  </body>
+</html>
