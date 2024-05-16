@@ -1,0 +1,181 @@
+:root {
+  --sm: 1.6rem;
+  --md: 1.8rem;
+  --lg: 2rem;
+  --very-light-pink: #c7c7c7;
+  --white: #ffffff;
+  --text-input-field: #f7f7f7;
+  --black: #000000;
+  --hospital-green: #acd9b2;
+  --dark: #232830;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+}
+
+.navbar__container {
+  position: sticky;
+  top: 0;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 18px;
+}
+
+.navbar__icon-menu-container {
+  cursor: pointer;
+}
+
+.navbar__categories,
+.navbar__email-container {
+  display: none;
+  user-select: none;
+}
+
+.navbar__icon-expand--inverted {
+  transform: rotate(180deg);
+}
+
+.navbar__icon-sp-cart-container {
+  position: relative;
+  cursor: pointer;
+}
+
+.navbar__product-number {
+  position: absolute;
+  top: -3px;
+  right: -8px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.menu-desktop {
+  position: absolute;
+  top: 70px;
+  border: 1px solid var(--very-light-pink);
+  border-radius: 5px;
+  width: 153px;
+  height: auto;
+  padding: 25px;
+}
+
+.menu-desktop__menu-options {
+  list-style: none;
+  text-align: end;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-desktop__menu-option {
+  display: inline-block;
+  margin-bottom: 30px;
+}
+
+.menu-desktop__menu-option--sign-out {
+  margin-bottom: 0;
+  border-top: 1px solid var(--very-light-pink);
+  padding-top: 20px;
+  width: 100%;
+}
+
+.menu-desktop__link {
+  text-decoration: none;
+  color: var(--black);
+  font-size: var(--md);
+  font-weight: bold;
+}
+
+.menu-desktop__link--sign-out {
+  color: var(--hospital-green);
+  font-size: var(--sm);
+}
+
+.menu-desktop--inactive {
+  display: none;
+}
+
+@media (min-width: 980px) {
+  .navbar {
+    padding: 12px 52px;
+  }
+
+  .navbar__icon-menu-container {
+    display: none;
+  }
+
+  .navbar__left,
+  .navbar__right {
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar__categories,
+  .navbar__email-container {
+    display: flex;
+  }
+
+  .navbar__logo {
+    width: 144px;
+    height: 30px;
+  }
+
+  .navbar__categories {
+    margin-left: 52px;
+    list-style: none;
+  }
+
+  .navbar__item {
+    margin-right: 20px;
+  }
+
+  .navbar__link {
+    border: 2px solid transparent;
+    border-radius: 10px;
+    padding: 2px 6px;
+    transition: border-color 0.3s;
+    font-size: var(--sm);
+    color: var(--very-light-pink);
+    text-decoration: none;
+  }
+
+  .navbar__link:focus,
+  .navbar__link:hover {
+    color: var(--hospital-green);
+    border: 2px solid var(--hospital-green);
+    border-radius: 10px;
+    padding: 2px 6px;
+  }
+
+  .navbar__email-container {
+    margin-right: 30px;
+    cursor: pointer;
+  }
+
+  .navbar__email {
+    margin-right: 4px;
+    font-size: 1.4rem;
+    color: var(--black);
+    font-weight: 300;
+  }
+
+  .navbar__email-container {
+    align-items: baseline;
+  }
+}
