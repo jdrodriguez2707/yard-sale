@@ -1,3 +1,4 @@
+/* Global */
 :root {
   --sm: 1.6rem;
   --md: 1.8rem;
@@ -22,8 +23,10 @@ html {
 
 body {
   font-family: "Quicksand", sans-serif;
+  overflow-x: hidden;
 }
 
+/* Desktop */
 .navbar__container {
   position: sticky;
   top: 0;
@@ -39,8 +42,9 @@ body {
   padding: 12px 18px;
 }
 
-.navbar__icon-menu-container {
+.navbar__icon {
   cursor: pointer;
+  user-select: none;
 }
 
 .navbar__categories,
@@ -108,16 +112,84 @@ body {
   font-size: var(--sm);
 }
 
-.menu-desktop--inactive {
+/* Mobile */
+.menu-mobile {
+  width: 100%;
+  position: absolute;
+  top: 70px;
+  padding: 40px 40px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-mobile__categories,
+.menu-mobile__category-list,
+.menu-mobile__my-info-list {
+  list-style: none;
+}
+
+.menu-mobile__categories-title {
+  display: inline-block;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+.menu-mobile__category-list {
+  border-bottom: 1px solid var(--very-light-pink);
+  padding-bottom: 40px;
+  margin-bottom: 40px;
+}
+
+.menu-mobile__category-item,
+.menu-mobile__my-info-item {
+  margin-bottom: 36px;
+}
+
+.menu-mobile__category-item:last-child {
+  margin-bottom: 0;
+}
+
+.menu-mobile__category-link,
+.menu-mobile__categories-title,
+.menu-mobile__my-info-link,
+.menu-mobile__sign-out {
+  text-decoration: none;
+  color: var(--black);
+  font-weight: bold;
+  font-size: var(--sm);
+}
+
+.menu-mobile__my-info-container {
+  margin-bottom: 40px;
+}
+
+.menu-mobile__email,
+.menu-mobile__sign-out {
+  font-size: 1.4rem;
+}
+
+.menu-mobile__email {
+  font-weight: 300;
+}
+
+.menu-mobile__sign-out {
+  color: var(--hospital-green);
+}
+
+.inactive {
   display: none;
 }
 
-@media (min-width: 980px) {
+@media (width >= 1024px) {
   .navbar {
     padding: 12px 52px;
   }
 
-  .navbar__icon-menu-container {
+  .navbar__icon {
+    display: none;
+  }
+
+  .menu-mobile {
     display: none;
   }
 
@@ -159,9 +231,7 @@ body {
   .navbar__link:focus,
   .navbar__link:hover {
     color: var(--hospital-green);
-    border: 2px solid var(--hospital-green);
-    border-radius: 10px;
-    padding: 2px 6px;
+    border-color: var(--hospital-green);
   }
 
   .navbar__email-container {
@@ -178,5 +248,11 @@ body {
 
   .navbar__email-container {
     align-items: baseline;
+  }
+}
+
+@media (width < 1024px) {
+  .menu-desktop {
+    display: none;
   }
 }
