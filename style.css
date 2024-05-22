@@ -24,6 +24,7 @@ html {
 body {
   font-family: "Quicksand", sans-serif;
   overflow: hidden;
+  height: 100vh;
 }
 
 /* Styles for desktop screens */

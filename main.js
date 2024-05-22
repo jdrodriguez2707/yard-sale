@@ -9,23 +9,34 @@ const navbarIconExpand = document.querySelector("#navbar-icon-expand");
 
 // Handle click on mobile menu icon
 barsIcon.addEventListener("click", () => {
-  closeIfIsOpened(shoppingCartAside, "inactive");
+  closeIfIsOpen(shoppingCartAside, "inactive");
   toggleElementWithClass(mobileMenu, "inactive");
 });
 
 // Handle click on shopping cart icon
 shoppingCartIcon.addEventListener("click", () => {
-  closeIfIsOpened(mobileMenu, "inactive");
-  closeIfIsOpened(desktopMenu, "inactive");
+  closeIfIsOpen(mobileMenu, "inactive");
+  closeIfIsOpen(desktopMenu, "inactive");
   navbarIconExpand.classList.remove("navbar__icon-expand--inverted");
   toggleElementWithClass(shoppingCartAside, "inactive");
 });
 
 // Handle click on navbar email
 navbarEmail.addEventListener("click", () => {
-  closeIfIsOpened(shoppingCartAside, "inactive");
+  closeIfIsOpen(shoppingCartAside, "inactive");
   toggleElementWithClass(desktopMenu, "inactive");
   toggleElementWithClass(navbarIconExpand, "navbar__icon-expand--inverted");
+});
+
+// Close window if they're open by clicking anywhere in the body without including the header
+document.body.addEventListener("click", (event) => {
+  if (
+    !event.target.closest(".navbar") &&
+    !event.target.closest(".shopping-cart")
+  ) {
+    closeIfIsOpen(shoppingCartAside, "inactive");
+    closeIfIsOpen(desktopMenu, "inactive");
+  }
 });
 
 // Toggle class on an element
@@ -35,7 +46,7 @@ function toggleElementWithClass(element, className) {
 }
 
 // Close or hide an element if it is open
-function closeIfIsOpened(element, className) {
+function closeIfIsOpen(element, className) {
   const isElementClosed = element.classList.contains(className);
   if (!isElementClosed) {
     element.classList.add(className); // Hide element by adding the 'inactive' class
