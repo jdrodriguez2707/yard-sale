@@ -15,6 +15,7 @@
   <body>
     <header class="navbar__container">
       <nav class="navbar">
+        <!-- Only shown on mobile screens -->
         <img
           id="bars-icon"
           class="navbar__icon"
@@ -72,6 +73,7 @@
               alt="Yard Sale"
             />
           </figure>
+          <!-- Only shown on laptop or desktop screens -->
           <ul class="navbar__categories">
             <li class="navbar__item">
               <a class="navbar__link" href="#">All</a>
@@ -94,6 +96,7 @@
           </ul>
         </div>
         <div class="navbar__right">
+          <!-- Only shown on laptop or desktop screens -->
           <div id="navbar-email" class="navbar__email-container">
             <p class="navbar__email">youremail@gmail.com</p>
             <figure class="navbar__icon-expand-container">
@@ -105,7 +108,10 @@
               />
             </figure>
           </div>
-          <figure id="shopping-cart-icon" class="navbar__icon-sp-cart-container">
+          <figure
+            id="shopping-cart-icon"
+            class="navbar__icon-sp-cart-container"
+          >
             <img
               class="navbar__icon-shopping-cart"
               src="./assets/icons/icon_shopping_cart_notification.svg"
@@ -136,7 +142,6 @@
         </div>
       </nav>
     </header>
-
     <aside id="shopping-cart-aside" class="aside-container inactive">
       <div class="shopping-cart">
         <div class="shopping-cart__title-arrow-container">
@@ -260,7 +265,6 @@
         </div>
       </div>
     </aside>
-
     <script src="./main.js"></script>
   </body>
 </html>

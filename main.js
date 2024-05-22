@@ -28,12 +28,13 @@ navbarEmail.addEventListener("click", () => {
   toggleElementWithClass(navbarIconExpand, "navbar__icon-expand--inverted");
 });
 
-// To toggle class on an element
+// Toggle class on an element
 function toggleElementWithClass(element, className) {
+  // If the class exists it will be removed, and if the class doesn't exist it will be added
   element.classList.toggle(className);
 }
 
-// To close or hide element if it is open
+// Close or hide an element if it is open
 function closeIfIsOpened(element, className) {
   const isElementClosed = element.classList.contains(className);
   if (!isElementClosed) {
