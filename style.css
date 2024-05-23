@@ -23,7 +23,6 @@ html {
 
 body {
   font-family: "Quicksand", sans-serif;
-  height: 100vh;
 }
 
 /* Styles for desktop screens */
@@ -116,10 +115,9 @@ body {
 /* Styles for mobile screens */
 .menu-mobile {
   width: 100%;
-  height: 100%;
   position: absolute;
   top: 54px;
-  padding: 40px 40px 0;
+  padding: 40px 40px 0 20px;
   display: flex;
   flex-direction: column;
   background-color: var(--white);
@@ -183,7 +181,8 @@ body {
 .aside-container {
   display: grid;
   justify-items: center;
-  position: absolute;
+  position: fixed;
+  top: 54px;
   width: 100%;
   min-height: 100%;
   background: #fff;
@@ -227,7 +226,7 @@ body {
 .shopping-cart__product-image {
   margin-right: 16px;
   border-radius: 20px;
-  width: 75px;
+  width: 100%;
   height: 75px;
   object-fit: cover;
 }
@@ -292,7 +291,7 @@ body {
 }
 
 .home-sign-in {
-  margin: 28px 0;
+  margin: 24px 0;
   padding-bottom: 28px;
 }
 
@@ -421,7 +420,6 @@ body {
   }
 
   .aside-container {
-    position: fixed;
     right: 0;
     border-radius: 5px;
     box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.12);
