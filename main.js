@@ -12,6 +12,7 @@ const productContainer = document.querySelector("#products-container");
 barsIcon.addEventListener("click", () => {
   closeIfIsOpen(shoppingCartAside, "inactive");
   toggleElementWithClass(mobileMenu, "inactive");
+  toggleElementWithClass(document.body, "no-scrolling");
 });
 
 // Handle click on shopping cart icon
