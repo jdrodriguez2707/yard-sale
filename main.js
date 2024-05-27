@@ -7,20 +7,27 @@ const navbarEmail = document.querySelector("#navbar-email");
 const desktopMenu = document.querySelector("#menu-desktop");
 const navbarIconExpand = document.querySelector("#navbar-icon-expand");
 const productContainer = document.querySelector("#products-container");
+const productDetailsAside = document.querySelector("#product-details-aside");
+const productDetailsCloseIcon = document.querySelector(
+  "#product-details-close-icon"
+);
 
 // Handle click on mobile menu icon
 barsIcon.addEventListener("click", () => {
   closeIfIsOpen(shoppingCartAside, "inactive");
   toggleElementWithClass(mobileMenu, "inactive");
   toggleElementWithClass(document.body, "no-scrolling");
+  closeIfIsOpen(productDetailsAside, "inactive");
 });
 
 // Handle click on shopping cart icon
 shoppingCartIcon.addEventListener("click", () => {
   closeIfIsOpen(mobileMenu, "inactive");
   closeIfIsOpen(desktopMenu, "inactive");
+  closeIfIsOpen(productDetailsAside, "inactive");
   navbarIconExpand.classList.remove("navbar__icon-expand--inverted");
   toggleElementWithClass(shoppingCartAside, "inactive");
+  toggleElementWithClass(document.body, "no-scrolling");
 });
 
 // Handle click on navbar email
@@ -28,17 +35,25 @@ navbarEmail.addEventListener("click", () => {
   closeIfIsOpen(shoppingCartAside, "inactive");
   toggleElementWithClass(desktopMenu, "inactive");
   toggleElementWithClass(navbarIconExpand, "navbar__icon-expand--inverted");
+  closeIfIsOpen(productDetailsAside, "inactive");
 });
 
 // Close window if they're open by clicking anywhere in the body without including the header
 document.body.addEventListener("click", (event) => {
   if (
     !event.target.closest(".navbar") &&
-    !event.target.closest(".shopping-cart")
+    !event.target.closest(".shopping-cart") &&
+    !event.target.closest(".products-container__product-card")
   ) {
     closeIfIsOpen(shoppingCartAside, "inactive");
     closeIfIsOpen(desktopMenu, "inactive");
+    closeIfIsOpen(productDetailsAside, "inactive");
   }
+});
+
+// Close product details aside by clicking on the close icon
+productDetailsCloseIcon.addEventListener("click", () => {
+  productDetailsAside.classList.add("inactive");
 });
 
 // Toggle class on an element
@@ -94,6 +109,12 @@ function displayProducts(productList) {
     productImage.classList.add("products-container__product-image");
     productImage.setAttribute("src", product.imageURL);
     productImage.setAttribute("alt", product.imageDescription);
+    productImage.addEventListener("click", () => {
+      productDetailsAside.classList.remove("inactive");
+      closeIfIsOpen(shoppingCartAside, "inactive");
+      closeIfIsOpen(desktopMenu, "inactive");
+      navbarIconExpand.classList.remove("navbar__icon-expand--inverted");
+    });
 
     productImageContainer.appendChild(productImage);
 
