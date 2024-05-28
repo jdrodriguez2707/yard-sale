@@ -8,15 +8,13 @@ const desktopMenu = document.querySelector("#menu-desktop");
 const navbarIconExpand = document.querySelector("#navbar-icon-expand");
 const productContainer = document.querySelector("#products-container");
 const productDetailsAside = document.querySelector("#product-details-aside");
-const productDetailsCloseIcon = document.querySelector(
-  "#product-details-close-icon"
-);
+const productDetailsCloseIcon = document.querySelector("#product-details-close-icon");
 
 // Handle click on mobile menu icon
 barsIcon.addEventListener("click", () => {
   closeIfIsOpen(shoppingCartAside, "inactive");
   toggleElementWithClass(mobileMenu, "inactive");
-  toggleElementWithClass(document.body, "no-scrolling");
+  toggleElementWithClass(document.body, "no-scrolling"); // Avoid scrolling in the background the menu mobile is open
   closeIfIsOpen(productDetailsAside, "inactive");
 });
 
@@ -38,9 +36,10 @@ navbarEmail.addEventListener("click", () => {
   closeIfIsOpen(productDetailsAside, "inactive");
 });
 
-// Close window if they're open by clicking anywhere in the body without including the header
+// Close window if they're open by clicking anywhere in the body without including the header, the shopping cart or the products
 document.body.addEventListener("click", (event) => {
   if (
+    // Excluded areas for clicking
     !event.target.closest(".navbar") &&
     !event.target.closest(".shopping-cart") &&
     !event.target.closest(".products-container__product-card")
@@ -101,9 +100,7 @@ function displayProducts(productList) {
     productCard.classList.add("products-container__product-card");
 
     const productImageContainer = document.createElement("figure");
-    productImageContainer.classList.add(
-      "products-container__product-img-container"
-    );
+    productImageContainer.classList.add("products-container__product-img-container");
 
     const productImage = document.createElement("img");
     productImage.classList.add("products-container__product-image");
