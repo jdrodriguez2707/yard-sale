@@ -204,6 +204,12 @@ body {
   background: #fff;
 }
 
+.shopping-cart__arrow-left-icon-mobile {
+  position: absolute;
+  top: 14px;
+  left: 18px;
+}
+
 .shopping-cart {
   display: flex;
   flex-direction: column;
@@ -553,6 +559,10 @@ body {
     box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.12);
     width: 400px;
     height: auto;
+  }
+
+  .shopping-cart__arrow-left-icon-mobile {
+    display: none;
   }
 
   .shopping-cart__title-arrow-container {

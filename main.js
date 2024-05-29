@@ -2,6 +2,7 @@
 const barsIcon = document.querySelector("#bars-icon");
 const mobileMenu = document.querySelector("#menu-mobile");
 const mobileMenuCloseIcon = document.querySelector("#menu-mobile-close-icon");
+const shoppingCartArrowLeftIconMobile = document.querySelector("#sp-cart-aside-arrow-left-icon-mobile");
 const shoppingCartIcon = document.querySelector("#shopping-cart-icon");
 const shoppingCartAside = document.querySelector("#shopping-cart-aside");
 const navbarEmail = document.querySelector("#navbar-email");
@@ -23,6 +24,11 @@ barsIcon.addEventListener("click", () => {
 // Close mobile menu by clicking on the close icon
 mobileMenuCloseIcon.addEventListener("click", () => {
   hideElement(mobileMenu);
+});
+
+// Close shopping cart aside on mobile by clicking on the arrow left icon
+shoppingCartArrowLeftIconMobile.addEventListener("click", () => {
+  hideElement(shoppingCartAside);
 });
 
 // Handle click on shopping cart icon
@@ -48,7 +54,7 @@ document.body.addEventListener("click", (event) => {
   if (
     // Excluded areas for clicking
     !event.target.closest(".navbar") &&
-    !event.target.closest(".shopping-cart") &&
+    !event.target.closest(".aside-container") &&
     !event.target.closest(".product-container") &&
     !event.target.closest(".products-container__product-card")
   ) {
