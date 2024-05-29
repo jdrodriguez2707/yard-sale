@@ -5,13 +5,17 @@ const mobileMenuCloseIcon = document.querySelector("#menu-mobile-close-icon");
 const shoppingCartArrowLeftIconMobile = document.querySelector("#sp-cart-aside-arrow-left-icon-mobile");
 const shoppingCartIcon = document.querySelector("#shopping-cart-icon");
 const shoppingCartAside = document.querySelector("#shopping-cart-aside");
+const shoppingCartArrowLeftIcon = document.querySelector("#sp-cart-arrow-left-icon");
 const navbarEmail = document.querySelector("#navbar-email");
 const desktopMenu = document.querySelector("#menu-desktop");
 const navbarIconExpand = document.querySelector("#navbar-icon-expand");
 const productContainer = document.querySelector("#products-container");
 const productDetailsAside = document.querySelector("#product-details-aside");
 const productDetailsCloseIcon = document.querySelector("#product-details-close-icon");
-const shoppingCartArrowLeftIcon = document.querySelector("#sp-cart-arrow-left-icon");
+const productDetailsImage = document.querySelector("#product-details-image");
+const productDetailsPrice = document.querySelector("#product-details-price");
+const productDetailsName = document.querySelector("#product-details-name");
+const productDetailsDescription = document.querySelector("#product-details-description");
 
 // Handle click on mobile menu icon
 barsIcon.addEventListener("click", () => {
@@ -98,6 +102,7 @@ const productList = [];
 productList.push({
   name: "Bike",
   price: 120,
+  description: 'Discover new trails and conquer challenging terrains with our "Adventure Explorer" All-Terrain Mountain Bike. Designed for cycling enthusiasts seeking thrilling adventures, this bike combines exceptional performance with a rugged and stylish design.',
   imageURL:
     "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
   imageDescription: "A bike",
@@ -106,6 +111,7 @@ productList.push({
 productList.push({
   name: "MacBook",
   price: 2000,
+  description: "MacBook Pro blasts forward with the M3, M3 Pro, and M3 Max chips. Built on 3‑nanometer technology and featuring an all-new GPU architecture, they’re the most advanced chips ever built for a personal computer. And each one brings more pro performance and capability.",
   imageURL:
     "https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   imageDescription: "An expensive MacBook",
@@ -114,6 +120,7 @@ productList.push({
 productList.push({
   name: "Monitor",
   price: 400,
+  description: "Upgrade your workspace with this high-quality DELL monitor. Featuring a crisp 24-inch Full HD display, this monitor delivers stunning visuals with vibrant colors and sharp details. Ideal for both work and entertainment, it offers excellent viewing angles and a sleek, modern design. Equipped with HDMI and VGA ports, it ensures easy connectivity to various devices. The monitor is in excellent condition, well-maintained, and comes with the original stand and power cable. Perfect for enhancing productivity or enjoying multimedia content. Don't miss out on this great deal!",
   imageURL: "https://images.pexels.com/photos/400678/pexels-photo-400678.jpeg",
   imageDescription: "A cool PC monitor",
 });
@@ -132,6 +139,11 @@ function displayProducts(productList) {
     productImage.setAttribute("alt", product.imageDescription);
     productImage.addEventListener("click", () => {
       productDetailsAside.classList.remove("inactive");
+      productDetailsImage.setAttribute("src", productImage.src);
+      productDetailsImage.setAttribute("alt", productImage.alt);
+      productDetailsPrice.innerText = productPrice.textContent;
+      productDetailsName.innerText = productName.textContent;
+      productDetailsDescription.innerText = productDescription;
       closeIfIsOpen(shoppingCartAside, "inactive");
       closeIfIsOpen(desktopMenu, "inactive");
       navbarIconExpand.classList.remove("navbar__icon-expand--inverted");
@@ -153,6 +165,9 @@ function displayProducts(productList) {
     productName.innerText = product.name;
 
     productInfoDiv.append(productPrice, productName);
+
+    // Save product description to display it on the product details aside after
+    const productDescription = product.description;
 
     const addToCartIconContainer = document.createElement("figure");
     addToCartIconContainer.classList.add("products-container__icon-container");

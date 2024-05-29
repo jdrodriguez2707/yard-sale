@@ -367,12 +367,9 @@ body {
 }
 
 .product-container__product-price {
-  display: flex;
-  flex-direction: column;
   font-size: var(--md);
   font-weight: bold;
   color: var(--black);
-  margin-bottom: 20px;
 }
 
 .product-container__product-name,
@@ -384,6 +381,7 @@ body {
 
 .product-container__product-description {
   overflow-y: auto;
+  margin-top: 20px;
   max-height: 200px;
   color: var(--black);
   font-weight: 300;
