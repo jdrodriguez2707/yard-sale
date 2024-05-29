@@ -9,6 +9,7 @@ const navbarIconExpand = document.querySelector("#navbar-icon-expand");
 const productContainer = document.querySelector("#products-container");
 const productDetailsAside = document.querySelector("#product-details-aside");
 const productDetailsCloseIcon = document.querySelector("#product-details-close-icon");
+const shoppingCartArrowLeftIcon = document.querySelector("#sp-cart-arrow-left-icon");
 
 // Handle click on mobile menu icon
 barsIcon.addEventListener("click", () => {
@@ -36,18 +37,24 @@ navbarEmail.addEventListener("click", () => {
   closeIfIsOpen(productDetailsAside, "inactive");
 });
 
-// Close window if they're open by clicking anywhere in the body without including the header, the shopping cart or the products
+// Close window if they're open by clicking anywhere in the body without including certain areas
 document.body.addEventListener("click", (event) => {
   if (
     // Excluded areas for clicking
     !event.target.closest(".navbar") &&
     !event.target.closest(".shopping-cart") &&
+    !event.target.closest(".product-container") &&
     !event.target.closest(".products-container__product-card")
   ) {
     closeIfIsOpen(shoppingCartAside, "inactive");
     closeIfIsOpen(desktopMenu, "inactive");
     closeIfIsOpen(productDetailsAside, "inactive");
   }
+});
+
+// Close shopping cart aside by clicking on the arrow left icon
+shoppingCartArrowLeftIcon.addEventListener("click", () => {
+  shoppingCartAside.classList.add("inactive");
 });
 
 // Close product details aside by clicking on the close icon
