@@ -1,6 +1,7 @@
 // Select DOM elements
 const barsIcon = document.querySelector("#bars-icon");
 const mobileMenu = document.querySelector("#menu-mobile");
+const mobileMenuCloseIcon = document.querySelector("#menu-mobile-close-icon");
 const shoppingCartIcon = document.querySelector("#shopping-cart-icon");
 const shoppingCartAside = document.querySelector("#shopping-cart-aside");
 const navbarEmail = document.querySelector("#navbar-email");
@@ -17,6 +18,11 @@ barsIcon.addEventListener("click", () => {
   toggleElementWithClass(mobileMenu, "inactive");
   toggleElementWithClass(document.body, "no-scrolling"); // Avoid scrolling in the background the menu mobile is open
   closeIfIsOpen(productDetailsAside, "inactive");
+});
+
+// Close mobile menu by clicking on the close icon
+mobileMenuCloseIcon.addEventListener("click", () => {
+  hideElement(mobileMenu);
 });
 
 // Handle click on shopping cart icon
@@ -54,12 +60,12 @@ document.body.addEventListener("click", (event) => {
 
 // Close shopping cart aside by clicking on the arrow left icon
 shoppingCartArrowLeftIcon.addEventListener("click", () => {
-  shoppingCartAside.classList.add("inactive");
+  hideElement(shoppingCartAside);
 });
 
 // Close product details aside by clicking on the close icon
 productDetailsCloseIcon.addEventListener("click", () => {
-  productDetailsAside.classList.add("inactive");
+  hideElement(productDetailsAside);
 });
 
 // Toggle class on an element
@@ -74,6 +80,11 @@ function closeIfIsOpen(element, className) {
   if (!isElementClosed) {
     element.classList.add(className); // Hide element by adding the 'inactive' class
   }
+}
+
+// Hide an element directly
+function hideElement(element) {
+  element.classList.add("inactive");
 }
 
 const productList = [];

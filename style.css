@@ -129,6 +129,13 @@ body {
   background-color: var(--white);
 }
 
+.menu-mobile__close-icon {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  width: 14px;
+}
+
 .menu-mobile__categories,
 .menu-mobile__category-list,
 .menu-mobile__my-info-list {
