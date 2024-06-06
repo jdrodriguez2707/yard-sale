@@ -72,7 +72,7 @@
           </div>
         </div>
         <div class="navbar__left">
-          <a href="#">
+          <a href="/">
             <figure class="navbar__logo-container">
               <img
                 class="navbar__logo"
@@ -84,22 +84,22 @@
           <!-- Only shown on laptop or desktop screens -->
           <ul class="navbar__categories">
             <li class="navbar__item">
-              <a class="navbar__link" href="#">All</a>
+              <a class="navbar__link" href="/">All</a>
             </li>
             <li class="navbar__item">
-              <a class="navbar__link" href="#">Clothes</a>
+              <a class="navbar__link" href="/">Clothes</a>
             </li>
             <li class="navbar__item">
-              <a class="navbar__link" href="#">Electronics</a>
+              <a class="navbar__link" href="/">Electronics</a>
             </li>
             <li class="navbar__item">
-              <a class="navbar__link" href="#">Furniture</a>
+              <a class="navbar__link" href="/">Furniture</a>
             </li>
             <li class="navbar__item">
-              <a class="navbar__link" href="#">Toys</a>
+              <a class="navbar__link" href="/">Toys</a>
             </li>
             <li class="navbar__item">
-              <a class="navbar__link" href="#">Others</a>
+              <a class="navbar__link" href="/">Others</a>
             </li>
           </ul>
         </div>
@@ -167,84 +167,30 @@
           </figure>
           <h2 class="shopping-cart__title">Shopping cart</h2>
         </div>
-        <div class="shopping-cart__product-container">
-          <div class="shopping-cart__product">
-            <figure class="shopping-cart__product-image-container">
-              <img
-                src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                alt="A bike"
-                class="shopping-cart__product-image"
-              />
-              <figcaption class="shopping-cart__product-name">Bike</figcaption>
-            </figure>
-            <div class="shopping-cart__price-container">
-              <p class="shopping-cart__product-price">$ 120</p>
-              <figure class="shopping-cart__delete-icon-container">
-                <img
-                  class="shopping-cart__delete-icon"
-                  src="./assets/icons/icon_close.png"
-                  alt="Delete icon"
-                />
-              </figure>
-            </div>
-          </div>
-          <div class="shopping-cart__product">
-            <figure class="shopping-cart__product-image-container">
-              <img
-                src="https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                alt="An expensive MacBook"
-                class="shopping-cart__product-image"
-              />
-              <figcaption class="shopping-cart__product-name">
-                MacBook
-              </figcaption>
-            </figure>
-            <div class="shopping-cart__price-container">
-              <p class="shopping-cart__product-price">$ 2000</p>
-              <figure class="shopping-cart__delete-icon-container">
-                <img
-                  class="shopping-cart__delete-icon"
-                  src="./assets/icons/icon_close.png"
-                  alt="Delete icon"
-                />
-              </figure>
-            </div>
-          </div>
-          <div class="shopping-cart__product">
-            <figure class="shopping-cart__product-image-container">
-              <img
-                src="https://images.pexels.com/photos/400678/pexels-photo-400678.jpeg"
-                alt="A cool monitor"
-                class="shopping-cart__product-image"
-              />
-              <figcaption class="shopping-cart__product-name">
-                Monitor
-              </figcaption>
-            </figure>
-            <div class="shopping-cart__price-container">
-              <p class="shopping-cart__product-price">$ 400</p>
-              <figure class="shopping-cart__delete-icon-container">
-                <img
-                  class="shopping-cart__delete-icon"
-                  src="./assets/icons/icon_close.png"
-                  alt="Delete icon"
-                />
-              </figure>
-            </div>
+        <div id="shopping-cart-product-container" class="shopping-cart__product-container">
+          <div id="shopping-cart-empty-container" class="shopping-cart__sp-empty-icon-container">
+            <img 
+              class="shopping-cart__shopping-cart-empty-icon" 
+              src="./assets/icons/carbon--shopping-cart-error.svg" 
+              alt="Shopping cart empty" 
+            />
+            <p class="shopping-cart__sp-empty-text">You haven't added any products yet.</p>
           </div>
         </div>
         <div class="shopping-cart__total-value-container">
-          <div class="shopping-cart__total-to-pay-container">
+          <div id="shopping-cart-total-to-pay" class="shopping-cart__total-to-pay-container inactive">
             <p class="shopping-cart__total-text">Total</p>
             <p class="shopping-cart__total-value">$ 2520</p>
           </div>
-          <button class="shopping-cart__button-checkout">Checkout</button>
+          <button id="shopping-cart-checkout-button" class="shopping-cart__button-checkout inactive">Checkout</button>
         </div>
       </div>
     </aside>
     <aside id="product-details-aside" class="product-container inactive">
       <figure class="product-container__img-container">
+        <!-- fake src to avoid problems with accessibility or SEO -->
         <img
+          src="./assets/logos/logo_yard_sale.svg" 
           id="product-details-image"
           class="product-container__product-img"
         />

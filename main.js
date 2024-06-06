@@ -6,6 +6,11 @@ const shoppingCartArrowLeftIconMobile = document.querySelector("#sp-cart-aside-a
 const shoppingCartIcon = document.querySelector("#shopping-cart-icon");
 const shoppingCartAside = document.querySelector("#shopping-cart-aside");
 const shoppingCartArrowLeftIcon = document.querySelector("#sp-cart-arrow-left-icon");
+const shoppingCartEmptyContainer = document.querySelector("#shopping-cart-empty-container");
+const shoppingCartProductContainer = document.querySelector("#shopping-cart-product-container");
+const shoppingCartProducts = []; // Save products to check if the shopping cart becomes empty later
+const shoppingCartTotalToPay = document.querySelector("#shopping-cart-total-to-pay");
+const shoppingCartCheckoutButton = document.querySelector("#shopping-cart-checkout-button");
 const navbarEmail = document.querySelector("#navbar-email");
 const desktopMenu = document.querySelector("#menu-desktop");
 const navbarIconExpand = document.querySelector("#navbar-icon-expand");
@@ -125,7 +130,7 @@ productList.push({
   imageDescription: "A cool PC monitor",
 });
 
-function displayProducts(productList) {
+function displayProductsOnHome(productList) {
   for (product of productList) {
     const productCard = document.createElement("div");
     productCard.classList.add("products-container__product-card");
@@ -151,6 +156,10 @@ function displayProducts(productList) {
 
     productImageContainer.appendChild(productImage);
 
+    // Save the values of the 'src' and 'alt' attributes of the product image to display them in the shopping cart aside later
+    const productImageSrc = product.imageURL;
+    const productImageAlt = product.imageDescription;
+
     const productInfo = document.createElement("div");
     productInfo.classList.add("products-container__product-info");
 
@@ -160,17 +169,39 @@ function displayProducts(productList) {
     productPrice.classList.add("products-container__product-price");
     productPrice.innerText = "$" + product.price;
 
+    // Save product price to display it on the shopping cart aside later
+    const productPriceShoppingCart = product.price;
+
     const productName = document.createElement("p");
     productName.classList.add("products-container__product-name");
     productName.innerText = product.name;
 
+    // Save product name to display it on the shopping cart aside later
+    const productNameShoppingCart = product.name;
+
     productInfoDiv.append(productPrice, productName);
 
-    // Save product description to display it on the product details aside after
+    // Save product description to display it on the product details aside later
     const productDescription = product.description;
 
     const addToCartIconContainer = document.createElement("figure");
     addToCartIconContainer.classList.add("products-container__icon-container");
+    addToCartIconContainer.addEventListener("click", () => {
+      addToCartIcon.setAttribute("src", "./assets/icons/bt_added_to_cart.svg");
+      addToCartIcon.classList.replace("products-container__add-to-cart-icon", "products-container__added-to-cart-icon");
+      addToCartIcon.setAttribute("alt", "Added to cart icon");
+      shoppingCartEmptyContainer.classList.add("inactive");
+      displayProductsOnShoppingCart(
+        productImageSrc, 
+        productImageAlt, 
+        productNameShoppingCart, 
+        productPriceShoppingCart, 
+        addToCartIcon,
+        addToCartIconContainer
+      );
+      addToCartIconContainer.classList.add("disabled");
+      alert("Product added successfully! ✅");
+    });
 
     const addToCartIcon = document.createElement("img");
     addToCartIcon.classList.add("products-container__add-to-cart-icon");
@@ -184,4 +215,65 @@ function displayProducts(productList) {
   }
 }
 
-displayProducts(productList);
+function displayProductsOnShoppingCart(productImgSrc, productImgAlt, productName, productPrice, addedToCartIcon, iconContainer) {
+  const shoppingCartProductDiv = document.createElement("div");
+  shoppingCartProductDiv.classList.add("shopping-cart__product");
+
+  const shoppingCartProductImageContainer = document.createElement("figure");
+  shoppingCartProductImageContainer.classList.add("shopping-cart__product-image-container");
+
+  const shoppingCartProductImage = document.createElement("img");
+  shoppingCartProductImage.classList.add("shopping-cart__product-image");
+  shoppingCartProductImage.setAttribute("src", productImgSrc);
+  shoppingCartProductImage.setAttribute("alt", productImgAlt);
+
+  const shoppingCartProductName = document.createElement("figcaption");
+  shoppingCartProductName.classList.add("shopping-cart__product-name");
+  shoppingCartProductName.innerText = productName;
+
+  shoppingCartProductImageContainer.append(shoppingCartProductImage, shoppingCartProductName);
+
+  const shoppingCartPriceContainer = document.createElement("div");
+  shoppingCartPriceContainer.classList.add("shopping-cart__price-container");
+
+  const shoppingCartProductPrice = document.createElement("p");
+  shoppingCartProductPrice.classList.add("shopping-cart__product-price");
+  shoppingCartProductPrice.innerText = "$" + productPrice;
+
+  const shoppingCartDeleteIconContainer = document.createElement("figure");
+  shoppingCartDeleteIconContainer.classList.add("shopping-cart__delete-icon-container");
+  shoppingCartDeleteIconContainer.addEventListener("click", () => {
+    shoppingCartProductDiv.classList.add("inactive");
+
+    shoppingCartProducts.pop();
+    if (!shoppingCartProducts.length) {
+      shoppingCartEmptyContainer.classList.remove("inactive");
+      shoppingCartTotalToPay.classList.add("inactive");
+      shoppingCartCheckoutButton.classList.add("inactive");
+    }
+
+    iconContainer.classList.remove("disabled");
+    addedToCartIcon.classList.replace("products-container__added-to-cart-icon", "products-container__add-to-cart-icon");
+    addedToCartIcon.setAttribute("src", "./assets/icons/bt_add_to_cart.svg");
+    addedToCartIcon.setAttribute("alt", "Add to cart icon");
+    alert("Product removed successfully! ✅");
+  });
+
+  const shoppingCartDeleteIcon = document.createElement("img");
+  shoppingCartDeleteIcon.classList.add("shopping-cart__delete-icon");
+  shoppingCartDeleteIcon.setAttribute("src", "./assets/icons/icon_close.png");
+  shoppingCartDeleteIcon.setAttribute("alt", "Delete icon");
+
+  shoppingCartDeleteIconContainer.appendChild(shoppingCartDeleteIcon);
+  shoppingCartPriceContainer.append(shoppingCartProductPrice, shoppingCartDeleteIconContainer);
+
+  shoppingCartProductDiv.append(shoppingCartProductImageContainer, shoppingCartPriceContainer);
+  shoppingCartProductContainer.appendChild(shoppingCartProductDiv);
+
+  shoppingCartProducts.push(shoppingCartProductDiv);
+
+  shoppingCartTotalToPay.classList.remove("inactive");
+  shoppingCartCheckoutButton.classList.remove("inactive");
+}
+
+displayProductsOnHome(productList);

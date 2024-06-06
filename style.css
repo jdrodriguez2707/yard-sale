@@ -202,6 +202,7 @@ body {
   max-height: 100%;
   overflow-y: auto;
   background: #fff;
+  user-select: none;
 }
 
 .shopping-cart__arrow-left-icon-mobile {
@@ -228,9 +229,27 @@ body {
 }
 
 .shopping-cart__product-container {
+  text-align: center;
   padding-right: 20px;
   overflow-y: auto;
   height: 60vh;
+}
+
+.shopping-cart__sp-empty-icon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 10px;
+}
+
+.shopping-cart__shopping-cart-empty-icon {
+  width: 80px;
+}
+
+.shopping-cart__sp-empty-text {
+  font-size: var(--sm);
 }
 
 .shopping-cart__product {
@@ -440,6 +459,7 @@ body {
 }
 
 .products-container__icon-container {
+  user-select: none;
   cursor: pointer;
 }
 
@@ -448,6 +468,7 @@ body {
   border-radius: 20px;
   width: var(--product-card-size);
   height: var(--product-card-size);
+  user-select: none;
 }
 
 .products-container__product-info {
@@ -483,6 +504,11 @@ body {
 /* Avoid scrolling when the menu mobile is open */
 .no-scrolling {
   overflow: hidden;
+}
+
+/* Disable pointer events when user adds a product on the shopping cart to avoid duplicated products */
+.disabled {
+  pointer-events: none;
 }
 
 @media (width >= 640px) {
