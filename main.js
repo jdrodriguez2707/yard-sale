@@ -4,6 +4,7 @@ const mobileMenu = document.querySelector("#menu-mobile");
 const mobileMenuCloseIcon = document.querySelector("#menu-mobile-close-icon");
 const shoppingCartArrowLeftIconMobile = document.querySelector("#sp-cart-aside-arrow-left-icon-mobile");
 const shoppingCartIcon = document.querySelector("#shopping-cart-icon");
+const shoppingCartNumberOfProducts = document.querySelector("#shopping-cart-number-of-products");
 const shoppingCartAside = document.querySelector("#shopping-cart-aside");
 const shoppingCartArrowLeftIcon = document.querySelector("#sp-cart-arrow-left-icon");
 const shoppingCartEmptyContainer = document.querySelector("#shopping-cart-empty-container");
@@ -187,6 +188,7 @@ function displayProductsOnHome(productList) {
     const addToCartIconContainer = document.createElement("figure");
     addToCartIconContainer.classList.add("products-container__icon-container");
     addToCartIconContainer.addEventListener("click", () => {
+      shoppingCartNumberOfProducts.innerText++;
       addToCartIcon.setAttribute("src", "./assets/icons/bt_added_to_cart.svg");
       addToCartIcon.classList.replace("products-container__add-to-cart-icon", "products-container__added-to-cart-icon");
       addToCartIcon.setAttribute("alt", "Added to cart icon");
@@ -257,6 +259,8 @@ function displayProductsOnShoppingCart(productImgSrc, productImgAlt, productName
     addedToCartIcon.setAttribute("src", "./assets/icons/bt_add_to_cart.svg");
     addedToCartIcon.setAttribute("alt", "Add to cart icon");
     alert("Product removed successfully! ✅");
+
+    shoppingCartNumberOfProducts.innerText--;
   });
 
   const shoppingCartDeleteIcon = document.createElement("img");
