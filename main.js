@@ -2,6 +2,8 @@
 const barsIcon = document.querySelector("#bars-icon");
 const mobileMenu = document.querySelector("#menu-mobile");
 const mobileMenuCloseIcon = document.querySelector("#menu-mobile-close-icon");
+const navbarLinksMobile = [...document.getElementsByClassName("menu-mobile__category-link")]; // Mobile
+const navbarLinks = [...document.getElementsByClassName("navbar__link")]; // Desktop
 const shoppingCartArrowLeftIconMobile = document.querySelector("#sp-cart-aside-arrow-left-icon-mobile");
 const shoppingCartIcon = document.querySelector("#shopping-cart-icon");
 const shoppingCartNumberOfProducts = document.querySelector("#shopping-cart-number-of-products");
@@ -114,6 +116,7 @@ productList.push({
   imageURL:
     "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
   imageDescription: "A bike",
+  category: "others"
 });
 
 productList.push({
@@ -123,6 +126,7 @@ productList.push({
   imageURL:
     "https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   imageDescription: "An expensive MacBook",
+  category: "electronics"
 });
 
 productList.push({
@@ -131,6 +135,7 @@ productList.push({
   description: "Upgrade your workspace with this high-quality DELL monitor. Featuring a crisp 24-inch Full HD display, this monitor delivers stunning visuals with vibrant colors and sharp details. Ideal for both work and entertainment, it offers excellent viewing angles and a sleek, modern design. Equipped with HDMI and VGA ports, it ensures easy connectivity to various devices. The monitor is in excellent condition, well-maintained, and comes with the original stand and power cable. Perfect for enhancing productivity or enjoying multimedia content. Don't miss out on this great deal!",
   imageURL: "https://images.pexels.com/photos/400678/pexels-photo-400678.jpeg",
   imageDescription: "A cool PC monitor",
+  category: "electronics"
 });
 
 function displayProductsOnHome(productList) {
@@ -289,3 +294,85 @@ function displayProductsOnShoppingCart(productImgSrc, productImgAlt, productName
 }
 
 displayProductsOnHome(productList);
+
+// Filter products from mobile menu 
+function filterProductsOnMobile() {
+  navbarLinksMobile.forEach((navbarLinkMobile) => {
+    if (navbarLinkMobile.textContent.toLowerCase() === "all") {
+      navbarLinkMobile.addEventListener("click", (event) => {
+        event.preventDefault(); // Prevent the page from reloading when clicking on the links
+        productContainer.innerHTML = ""; // Remove other products in the home to show only filtered products
+        displayProductsOnHome(productList);
+        hideElement(mobileMenu);
+      });
+    } else {
+      navbarLinkMobile.addEventListener("click", (event) => {
+        event.preventDefault();
+  
+        // Filter products by category
+        const filteredProducts = productList.filter((product) => product.category === navbarLinkMobile.textContent.toLowerCase());
+  
+        productContainer.innerHTML = "";
+        displayProductsOnHome(filteredProducts);
+        hideElement(mobileMenu);
+      });
+    }
+  });
+}
+
+filterProductsOnMobile();
+
+// Filter products from navbar menu on desktop
+const mediaQuery = window.matchMedia("(min-width: 1024px)");
+
+// Add necessary event listeners
+function setupEventListeners() {
+  navbarLinks.forEach((navbarLink) => {
+    if (navbarLink.textContent.toLowerCase() === "all") {
+      navbarLink.addEventListener("click", handleAllClick);
+    } else {
+      navbarLink.addEventListener("click", handleCategoryClick);
+    }
+  });
+}
+
+// Remove event listeners to avoid duplication
+function removeEventListeners() {
+  navbarLinks.forEach((navbarLink) => {
+    navbarLink.removeEventListener("click", handleAllClick);
+    navbarLink.removeEventListener("click", handleCategoryClick);
+  });
+}
+
+// Show all products
+function handleAllClick(event) {
+  event.preventDefault();
+  productContainer.innerHTML = "";
+  displayProductsOnHome(productList);
+}
+
+// Filter products by category
+function handleCategoryClick(event) {
+  event.preventDefault();
+  const navbarLink = event.currentTarget; // Reference to the element that has the listener
+  const filteredProducts = productList.filter((product) => product.category === navbarLink.textContent.toLowerCase());
+  productContainer.innerHTML = "";
+  displayProductsOnHome(filteredProducts);
+}
+
+// Configure or remove event listeners depending on wether the media query matches or not
+function handleMediaQueryChange(event) {
+  if (event.matches) {
+    setupEventListeners();
+  } else {
+    removeEventListeners();
+  }
+}
+
+// Initial setup based on the current media query status
+if (mediaQuery.matches) {
+  setupEventListeners();
+}
+
+// Ensure that event listeners are updated when the state of the media query changes
+mediaQuery.addEventListener("change", handleMediaQueryChange);
