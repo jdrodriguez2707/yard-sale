@@ -11,6 +11,8 @@ const shoppingCartEmptyContainer = document.querySelector("#shopping-cart-empty-
 const shoppingCartProductContainer = document.querySelector("#shopping-cart-product-container");
 const shoppingCartProducts = []; // Save products to check if the shopping cart becomes empty later
 const shoppingCartTotalToPay = document.querySelector("#shopping-cart-total-to-pay");
+const shoppingCartTotalValue = document.querySelector("#shopping-cart-total-value");
+let totalToPay = 0; // Accumulator
 const shoppingCartCheckoutButton = document.querySelector("#shopping-cart-checkout-button");
 const navbarEmail = document.querySelector("#navbar-email");
 const desktopMenu = document.querySelector("#menu-desktop");
@@ -168,7 +170,7 @@ function displayProductsOnHome(productList) {
 
     const productPrice = document.createElement("p");
     productPrice.classList.add("products-container__product-price");
-    productPrice.innerText = "$" + product.price;
+    productPrice.innerText = `$${product.price}`;
 
     // Save product price to display it on the shopping cart aside later
     const productPriceShoppingCart = product.price;
@@ -240,12 +242,15 @@ function displayProductsOnShoppingCart(productImgSrc, productImgAlt, productName
 
   const shoppingCartProductPrice = document.createElement("p");
   shoppingCartProductPrice.classList.add("shopping-cart__product-price");
-  shoppingCartProductPrice.innerText = "$" + productPrice;
+  shoppingCartProductPrice.innerText = `$${productPrice}`;
 
   const shoppingCartDeleteIconContainer = document.createElement("figure");
   shoppingCartDeleteIconContainer.classList.add("shopping-cart__delete-icon-container");
   shoppingCartDeleteIconContainer.addEventListener("click", () => {
     shoppingCartProductDiv.classList.add("inactive");
+
+    totalToPay -= productPrice;
+    shoppingCartTotalValue.innerText = `$${totalToPay}`;
 
     shoppingCartProducts.pop();
     if (!shoppingCartProducts.length) {
@@ -278,6 +283,9 @@ function displayProductsOnShoppingCart(productImgSrc, productImgAlt, productName
 
   shoppingCartTotalToPay.classList.remove("inactive");
   shoppingCartCheckoutButton.classList.remove("inactive");
+
+  totalToPay += productPrice;
+  shoppingCartTotalValue.innerText = `$${totalToPay}`;
 }
 
 displayProductsOnHome(productList);
