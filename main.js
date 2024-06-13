@@ -150,6 +150,8 @@ function displayProductsOnHome(productList) {
     productImage.classList.add("products-container__product-image");
     productImage.setAttribute("src", product.imageURL);
     productImage.setAttribute("alt", product.imageDescription);
+
+    // Show product details aside when clicking on the product image
     productImage.addEventListener("click", () => {
       productDetailsAside.classList.remove("inactive");
       productDetailsImage.setAttribute("src", productImage.src);
@@ -194,12 +196,20 @@ function displayProductsOnHome(productList) {
 
     const addToCartIconContainer = document.createElement("figure");
     addToCartIconContainer.classList.add("products-container__icon-container");
+
+    // Add product to the shopping cart aside when clicking on the add to cart icon
     addToCartIconContainer.addEventListener("click", () => {
+      // Update the number of products in the shopping cart
       shoppingCartNumberOfProducts.innerText++;
+
+      // Change the icon to the added to cart icon
       addToCartIcon.setAttribute("src", "./assets/icons/bt_added_to_cart.svg");
       addToCartIcon.classList.replace("products-container__add-to-cart-icon", "products-container__added-to-cart-icon");
       addToCartIcon.setAttribute("alt", "Added to cart icon");
-      shoppingCartEmptyContainer.classList.add("inactive");
+
+      // Hide the empty shopping cart message
+      hideElement(shoppingCartEmptyContainer);
+
       displayProductsOnShoppingCart(
         productImageSrc, 
         productImageAlt, 
@@ -208,7 +218,10 @@ function displayProductsOnHome(productList) {
         addToCartIcon,
         addToCartIconContainer
       );
+
+      // Disable the add to cart icon after adding the product to the shopping cart
       addToCartIconContainer.classList.add("disabled");
+
       alert("Product added successfully! ✅");
     });
 
@@ -224,7 +237,7 @@ function displayProductsOnHome(productList) {
   }
 }
 
-function displayProductsOnShoppingCart(productImgSrc, productImgAlt, productName, productPrice, addedToCartIcon, iconContainer) {
+function displayProductsOnShoppingCart(productImgSrc, productImgAlt, productName, productPrice, addToCartIcon, iconContainer) {
   const shoppingCartProductDiv = document.createElement("div");
   shoppingCartProductDiv.classList.add("shopping-cart__product");
 
@@ -251,25 +264,30 @@ function displayProductsOnShoppingCart(productImgSrc, productImgAlt, productName
 
   const shoppingCartDeleteIconContainer = document.createElement("figure");
   shoppingCartDeleteIconContainer.classList.add("shopping-cart__delete-icon-container");
-  shoppingCartDeleteIconContainer.addEventListener("click", () => {
-    shoppingCartProductDiv.classList.add("inactive");
 
+  // Remove product from the shopping cart aside when clicking on the delete icon
+  shoppingCartDeleteIconContainer.addEventListener("click", () => {
+    // Remove the product from the shopping cart aside and update the total to pay
+    hideElement(shoppingCartProductDiv);
     totalToPay -= productPrice;
     shoppingCartTotalValue.innerText = `$${totalToPay}`;
 
+    // Remove the product from the shopping cart products array to check if the shopping cart becomes empty later on and show the empty shopping cart message
     shoppingCartProducts.pop();
     if (!shoppingCartProducts.length) {
       shoppingCartEmptyContainer.classList.remove("inactive");
-      shoppingCartTotalToPay.classList.add("inactive");
-      shoppingCartCheckoutButton.classList.add("inactive");
+      hideElement(shoppingCartTotalToPay);
+      hideElement(shoppingCartCheckoutButton);
     }
 
+    // Enable the add to cart icon after removing the product from the shopping cart aside and change the icon to the add to cart icon again
     iconContainer.classList.remove("disabled");
-    addedToCartIcon.classList.replace("products-container__added-to-cart-icon", "products-container__add-to-cart-icon");
-    addedToCartIcon.setAttribute("src", "./assets/icons/bt_add_to_cart.svg");
-    addedToCartIcon.setAttribute("alt", "Add to cart icon");
+    addToCartIcon.classList.replace("products-container__added-to-cart-icon", "products-container__add-to-cart-icon");
+    addToCartIcon.setAttribute("src", "./assets/icons/bt_add_to_cart.svg");
+    addToCartIcon.setAttribute("alt", "Add to cart icon");
     alert("Product removed successfully! ✅");
 
+    // Update the number of products in the shopping cart when removing a product from the shopping cart aside
     shoppingCartNumberOfProducts.innerText--;
   });
 
@@ -288,7 +306,8 @@ function displayProductsOnShoppingCart(productImgSrc, productImgAlt, productName
 
   shoppingCartTotalToPay.classList.remove("inactive");
   shoppingCartCheckoutButton.classList.remove("inactive");
-
+  
+  // Update the total to pay when adding a product to the shopping cart aside
   totalToPay += productPrice;
   shoppingCartTotalValue.innerText = `$${totalToPay}`;
 }
