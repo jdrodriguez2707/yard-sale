@@ -431,6 +431,7 @@ body {
   color: var(--white);
   background-color: var(--hospital-green);
   cursor: pointer;
+  user-select: none;
 }
 
 .product-container__sp-cart-container {
@@ -509,6 +510,8 @@ body {
 /* Disable pointer events when user adds a product on the shopping cart to avoid duplicated products */
 .disabled {
   pointer-events: none;
+  opacity: .5;
+  z-index: -1;
 }
 
 @media (width >= 640px) {

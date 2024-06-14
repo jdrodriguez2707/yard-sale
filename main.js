@@ -26,6 +26,9 @@ const productDetailsImage = document.querySelector("#product-details-image");
 const productDetailsPrice = document.querySelector("#product-details-price");
 const productDetailsName = document.querySelector("#product-details-name");
 const productDetailsDescription = document.querySelector("#product-details-description");
+const productDetailsAddToCartButton = document.querySelector("#product-details-add-to-cart-button");
+let currentAddToCartListener = null; // Save the current event listener to remove it later
+const addedToCartProducts = {}; // Save products added to the shopping cart
 
 // Handle click on mobile menu icon
 barsIcon.addEventListener("click", () => {
@@ -111,6 +114,7 @@ const productList = [];
 
 // Products
 productList.push({
+  id: 1,
   name: "MacBook",
   price: 2000,
   description: "MacBook Pro blasts forward with the M3, M3 Pro, and M3 Max chips. Built on 3‑nanometer technology and featuring an all-new GPU architecture, they’re the most advanced chips ever built for a personal computer. And each one brings more pro performance and capability.",
@@ -121,6 +125,7 @@ productList.push({
 });
 
 productList.push({
+  id: 2,
   name: "Monitor",
   price: 400,
   description: "Upgrade your workspace with this high-quality DELL monitor. Featuring a crisp 24-inch Full HD display, this monitor delivers stunning visuals with vibrant colors and sharp details. Ideal for both work and entertainment, it offers excellent viewing angles and a sleek, modern design. Equipped with HDMI and VGA ports, it ensures easy connectivity to various devices. The monitor is in excellent condition, well-maintained, and comes with the original stand and power cable. Perfect for enhancing productivity or enjoying multimedia content. Don't miss out on this great deal!",
@@ -130,6 +135,7 @@ productList.push({
 });
 
 productList.push({
+  id: 3,
   name: "Black sofa",
   price: 400,
   description: "A stylish and comfortable black sofa that adds a touch of elegance to any living space. Made with high-quality materials, this sofa offers exceptional durability and support. Perfect for relaxing and entertaining guests, it's the ideal addition to your home decor.",
@@ -139,6 +145,7 @@ productList.push({
 });
 
 productList.push({
+  id: 4,
   name: "White leather sofa",
   price: 200,
   description: "Add a touch of elegance to your living room with this stylish white leather sofa. Made with high-quality materials, this sofa offers exceptional comfort and durability. The sleek design and neutral color make it easy to match with any decor style. Whether you're relaxing with family or entertaining guests, this sofa is the perfect choice for your home.",
@@ -148,6 +155,7 @@ productList.push({
 });
 
 productList.push({
+  id: 5,
   name: "Dinning table",
   price: 110,
   description: "Upgrade your dining room with this elegant dining table. Made with high-quality materials, this table offers exceptional durability and style. The sleek design and neutral color make it easy to match with any decor style. Whether you're hosting a dinner party or enjoying a family meal, this table is the perfect choice for your home.",
@@ -157,6 +165,7 @@ productList.push({
 });
 
 productList.push({
+  id: 6,
   name: "Gray and Black Striped Crew-neck Top",
   price: 20,
   description: "Stay stylish and comfortable with this gray and black striped crew-neck top. Made with high-quality materials, this top offers exceptional comfort and durability. The classic design and neutral colors make it easy to match with any outfit. Whether you're running errands or relaxing at home, this top is the perfect choice for everyday wear.",
@@ -166,6 +175,7 @@ productList.push({
 });
 
 productList.push({
+  id: 7,
   name: "Pair of Black Dress Shoes",
   price: 20,
   description: "Step out in style with this pair of black dress shoes. Made with high-quality materials, these shoes offer exceptional comfort and durability. The classic design and sleek black color make them easy to match with any outfit. Whether you're heading to the office or a special event, these shoes are the perfect choice for a polished look.",
@@ -175,6 +185,7 @@ productList.push({
 });
 
 productList.push({
+  id: 8,
   name: "Super Mario, Luigi, and Yoshi Figurines",
   price: 10,
   description: "Add a touch of nostalgia to your collection with these Super Mario, Luigi, and Yoshi figurines. Made with high-quality materials, these figurines offer exceptional detail and durability. Whether you're a fan of the classic video game series or simply love collecting unique items, these figurines are the perfect addition to your home decor.",
@@ -184,6 +195,7 @@ productList.push({
 });
 
 productList.push({
+  id: 9,
   name: "Plastic Animal Toys",
   price: 4,
   description: "Let your child's imagination run wild with this set of plastic animal toys. Made with high-quality materials, these toys offer exceptional durability and safety. The bright colors and realistic designs make them perfect for creative play. Whether your child loves animals or simply enjoys imaginative play, these toys are sure to provide hours of entertainment.",
@@ -193,6 +205,7 @@ productList.push({
 });
 
 productList.push({
+  id: 10,
   name: "White Sheep Plush Toy",
   price: 8,
   description: "Cuddle up with this adorable white sheep plush toy. Made with soft, high-quality materials, this plush toy offers exceptional comfort and durability. The cute design and fluffy texture make it perfect for snuggling and play. Whether you're looking for a fun gift or a cozy companion, this sheep plush toy is sure to bring a smile to your face.",
@@ -202,6 +215,7 @@ productList.push({
 });
 
 productList.push({
+  id: 11,
   name: "Bike",
   price: 120,
   description: 'Discover new trails and conquer challenging terrains with our "Adventure Explorer" All-Terrain Mountain Bike. Designed for cycling enthusiasts seeking thrilling adventures, this bike combines exceptional performance with a rugged and stylish design.',
@@ -212,6 +226,7 @@ productList.push({
 });
 
 productList.push({
+  id: 12,
   name: "Orange and Black Ball",
   price: 12,
   description: "Get ready for hours of fun with this orange and black ball. Made with high-quality materials, this ball offers exceptional durability and bounce. The bright colors and unique design make it perfect for outdoor games and sports. Whether you're playing catch with friends or practicing your soccer skills, this ball is sure to provide endless entertainment.",
@@ -221,6 +236,7 @@ productList.push({
 });
 
 productList.push({
+  id: 13,
   name: "Black and White Basketball Ball",
   price: 15,
   description: "Take your game to the next level with this black and white basketball ball. Made with high-quality materials, this ball offers exceptional grip and bounce. The classic design and durable construction make it perfect for outdoor games and sports. Whether you're shooting hoops with friends or practicing your skills, this ball is sure to elevate your game.",
@@ -230,6 +246,7 @@ productList.push({
 });
 
 productList.push({
+  id: 14,
   name: "Two 2 Kg. Blue Hex Dumbbells",
   price: 20,
   description: "Get fit and stay healthy with this set of two 2 kg. blue hex dumbbells. Made with high-quality materials, these dumbbells offer exceptional durability and comfort. The hexagonal design prevents rolling and ensures stability during workouts. Whether you're strength training or toning your muscles, these dumbbells are the perfect addition to your home gym.",
@@ -239,7 +256,9 @@ productList.push({
 });
 
 function displayProductsOnHome(productList) {
-  for (product of productList) {
+  for (const product of productList) {
+    const productId = product.id;
+
     const productCard = document.createElement("div");
     productCard.classList.add("products-container__product-card");
 
@@ -259,6 +278,28 @@ function displayProductsOnHome(productList) {
       productDetailsPrice.innerText = productPrice.textContent;
       productDetailsName.innerText = productName.textContent;
       productDetailsDescription.innerText = productDescription;
+
+      // Handle add to cart button events in product details aside
+
+      // Delete the previous event listener to avoid adding multiple event listeners
+      if (currentAddToCartListener) {
+        productDetailsAddToCartButton.removeEventListener("click", currentAddToCartListener);
+      }
+      
+      // Create a new event listener
+      const newAddToCartListener = () => addProductToShoppingCart(productId);
+      productDetailsAddToCartButton.addEventListener("click", newAddToCartListener);
+
+      // Update the current event listener
+      currentAddToCartListener = newAddToCartListener;
+
+      // Disable the add to cart button in product details aside if the product is already added to the shopping cart
+      if (addedToCartProducts[productId]) {
+        productDetailsAddToCartButton.classList.add("disabled");
+      } else {
+        productDetailsAddToCartButton.classList.remove("disabled");
+      }
+
       closeIfIsOpen(shoppingCartAside, "inactive");
       closeIfIsOpen(desktopMenu, "inactive");
       navbarIconExpand.classList.remove("navbar__icon-expand--inverted");
@@ -299,6 +340,23 @@ function displayProductsOnHome(productList) {
 
     // Add product to the shopping cart aside when clicking on the add to cart icon
     addToCartIconContainer.addEventListener("click", () => {
+      addProductToShoppingCart(productId);
+    });
+
+    const addToCartIcon = document.createElement("img");
+    addToCartIcon.classList.add("products-container__add-to-cart-icon");
+    addToCartIcon.setAttribute("src", "./assets/icons/bt_add_to_cart.svg");
+    addToCartIcon.setAttribute("alt", "Add to cart icon");
+
+    addToCartIconContainer.appendChild(addToCartIcon);
+    productInfo.append(productInfoDiv, addToCartIconContainer);
+    productCard.append(productImageContainer, productInfo);
+    productContainer.append(productCard);
+
+    function addProductToShoppingCart(productId) {
+      // Mark the product as added to the shopping cart
+      addedToCartProducts[productId] = true;
+
       // Update the number of products in the shopping cart
       shoppingCartNumberOfProducts.innerText++;
 
@@ -311,33 +369,37 @@ function displayProductsOnHome(productList) {
       hideElement(shoppingCartEmptyContainer);
 
       displayProductsOnShoppingCart(
+        productId,
         productImageSrc, 
         productImageAlt, 
         productNameShoppingCart, 
         productPriceShoppingCart, 
         addToCartIcon,
-        addToCartIconContainer
+        addToCartIconContainer,
+        productDetailsAddToCartButton
       );
 
       // Disable the add to cart icon after adding the product to the shopping cart
       addToCartIconContainer.classList.add("disabled");
 
+      // Disable the add to cart icon in product details aside after adding the product to the shopping cart
+      productDetailsAddToCartButton.classList.add("disabled");
+
       alert("Product added successfully! ✅");
-    });
-
-    const addToCartIcon = document.createElement("img");
-    addToCartIcon.classList.add("products-container__add-to-cart-icon");
-    addToCartIcon.setAttribute("src", "./assets/icons/bt_add_to_cart.svg");
-    addToCartIcon.setAttribute("alt", "Add to cart icon");
-
-    addToCartIconContainer.appendChild(addToCartIcon);
-    productInfo.append(productInfoDiv, addToCartIconContainer);
-    productCard.append(productImageContainer, productInfo);
-    productContainer.append(productCard);
+    }
   }
 }
 
-function displayProductsOnShoppingCart(productImgSrc, productImgAlt, productName, productPrice, addToCartIcon, iconContainer) {
+function displayProductsOnShoppingCart(
+  productId,
+  productImgSrc, 
+  productImgAlt, 
+  productName, 
+  productPrice, 
+  addToCartIcon, 
+  iconContainer, 
+  productDetailsAddToCartIcon
+) {
   const shoppingCartProductDiv = document.createElement("div");
   shoppingCartProductDiv.classList.add("shopping-cart__product");
 
@@ -380,12 +442,20 @@ function displayProductsOnShoppingCart(productImgSrc, productImgAlt, productName
       hideElement(shoppingCartCheckoutButton);
     }
 
+    // Mark the product as not added to the shopping cart
+    addedToCartProducts[productId] = false;
+
     // Enable the add to cart icon after removing the product from the shopping cart aside and change the icon to the add to cart icon again
     iconContainer.classList.remove("disabled");
     addToCartIcon.classList.replace("products-container__added-to-cart-icon", "products-container__add-to-cart-icon");
     addToCartIcon.setAttribute("src", "./assets/icons/bt_add_to_cart.svg");
     addToCartIcon.setAttribute("alt", "Add to cart icon");
     alert("Product removed successfully! ✅");
+
+    if (!addedToCartProducts[productId]) {
+      // Enable the add to cart icon in product details aside after removing the product from the shopping cart
+      productDetailsAddToCartIcon.classList.remove("disabled");
+    }
 
     // Update the number of products in the shopping cart when removing a product from the shopping cart aside
     shoppingCartNumberOfProducts.innerText--;
