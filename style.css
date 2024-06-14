@@ -267,7 +267,6 @@ body {
 .shopping-cart__product-image {
   margin-right: 16px;
   border-radius: 20px;
-  width: 100%;
   height: 75px;
   object-fit: cover;
 }
