@@ -474,7 +474,6 @@ body {
 .products-container__product-info {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   margin-top: 12px;
 }
 
