@@ -151,7 +151,7 @@ productList.push({
   name: "Dinning table",
   price: 110,
   description: "Upgrade your dining room with this elegant dining table. Made with high-quality materials, this table offers exceptional durability and style. The sleek design and neutral color make it easy to match with any decor style. Whether you're hosting a dinner party or enjoying a family meal, this table is the perfect choice for your home.",
-  imageURL: "https://images.pexels.com/photos/1813502/pexels-photo-1813502.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  imageURL: "https://images.pexels.com/photos/13490214/pexels-photo-13490214.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   imageDescription: "A simple dinning table",
   category: "furniture"
 });
@@ -215,7 +215,7 @@ productList.push({
   name: "Orange and Black Ball",
   price: 12,
   description: "Get ready for hours of fun with this orange and black ball. Made with high-quality materials, this ball offers exceptional durability and bounce. The bright colors and unique design make it perfect for outdoor games and sports. Whether you're playing catch with friends or practicing your soccer skills, this ball is sure to provide endless entertainment.",
-  imageURL: "https://images.pexels.com/photos/2671953/pexels-photo-2671953.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  imageURL: "https://images.pexels.com/photos/1261014/pexels-photo-1261014.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
   imageDescription: "An orange and black ball",
   category: "others"
 });
