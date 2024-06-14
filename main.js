@@ -109,16 +109,7 @@ function hideElement(element) {
 
 const productList = [];
 
-productList.push({
-  name: "Bike",
-  price: 120,
-  description: 'Discover new trails and conquer challenging terrains with our "Adventure Explorer" All-Terrain Mountain Bike. Designed for cycling enthusiasts seeking thrilling adventures, this bike combines exceptional performance with a rugged and stylish design.',
-  imageURL:
-    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-  imageDescription: "A bike",
-  category: "others"
-});
-
+// Products
 productList.push({
   name: "MacBook",
   price: 2000,
@@ -136,6 +127,115 @@ productList.push({
   imageURL: "https://images.pexels.com/photos/400678/pexels-photo-400678.jpeg",
   imageDescription: "A cool PC monitor",
   category: "electronics"
+});
+
+productList.push({
+  name: "Black sofa",
+  price: 400,
+  description: "A stylish and comfortable black sofa that adds a touch of elegance to any living space. Made with high-quality materials, this sofa offers exceptional durability and support. Perfect for relaxing and entertaining guests, it's the ideal addition to your home decor.",
+  imageURL: "https://images.pexels.com/photos/276583/pexels-photo-276583.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  imageDescription: "Black Fabric Sectional Sofa Near Glass Window",
+  category: "furniture"
+});
+
+productList.push({
+  name: "White leather sofa",
+  price: 200,
+  description: "Add a touch of elegance to your living room with this stylish white leather sofa. Made with high-quality materials, this sofa offers exceptional comfort and durability. The sleek design and neutral color make it easy to match with any decor style. Whether you're relaxing with family or entertaining guests, this sofa is the perfect choice for your home.",
+  imageURL: "https://images.pexels.com/photos/276534/pexels-photo-276534.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  imageDescription: "Two Pillows on White Leather Fainting Couch",
+  category: "furniture"
+});
+
+productList.push({
+  name: "Dinning table",
+  price: 110,
+  description: "Upgrade your dining room with this elegant dining table. Made with high-quality materials, this table offers exceptional durability and style. The sleek design and neutral color make it easy to match with any decor style. Whether you're hosting a dinner party or enjoying a family meal, this table is the perfect choice for your home.",
+  imageURL: "https://images.pexels.com/photos/1813502/pexels-photo-1813502.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  imageDescription: "A simple dinning table",
+  category: "furniture"
+});
+
+productList.push({
+  name: "Gray and Black Striped Crew-neck Top",
+  price: 20,
+  description: "Stay stylish and comfortable with this gray and black striped crew-neck top. Made with high-quality materials, this top offers exceptional comfort and durability. The classic design and neutral colors make it easy to match with any outfit. Whether you're running errands or relaxing at home, this top is the perfect choice for everyday wear.",
+  imageURL: "https://images.pexels.com/photos/45982/pexels-photo-45982.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  imageDescription: "A gray and black striped crew-neck top",
+  category: "clothes"
+});
+
+productList.push({
+  name: "Pair of Black Dress Shoes",
+  price: 20,
+  description: "Step out in style with this pair of black dress shoes. Made with high-quality materials, these shoes offer exceptional comfort and durability. The classic design and sleek black color make them easy to match with any outfit. Whether you're heading to the office or a special event, these shoes are the perfect choice for a polished look.",
+  imageURL: "https://images.pexels.com/photos/292999/pexels-photo-292999.jpeg",
+  imageDescription: "A pair of black dress shoes",
+  category: "clothes"
+});
+
+productList.push({
+  name: "Super Mario, Luigi, and Yoshi Figurines",
+  price: 10,
+  description: "Add a touch of nostalgia to your collection with these Super Mario, Luigi, and Yoshi figurines. Made with high-quality materials, these figurines offer exceptional detail and durability. Whether you're a fan of the classic video game series or simply love collecting unique items, these figurines are the perfect addition to your home decor.",
+  imageURL: "https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  imageDescription: "Super Mario, Luigi, and Yoshi figurines",
+  category: "toys"
+});
+
+productList.push({
+  name: "Plastic Animal Toys",
+  price: 4,
+  description: "Let your child's imagination run wild with this set of plastic animal toys. Made with high-quality materials, these toys offer exceptional durability and safety. The bright colors and realistic designs make them perfect for creative play. Whether your child loves animals or simply enjoys imaginative play, these toys are sure to provide hours of entertainment.",
+  imageURL: "https://images.pexels.com/photos/1319572/pexels-photo-1319572.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  imageDescription: "Plastic animal toys",
+  category: "toys"
+});
+
+productList.push({
+  name: "White Sheep Plush Toy",
+  price: 8,
+  description: "Cuddle up with this adorable white sheep plush toy. Made with soft, high-quality materials, this plush toy offers exceptional comfort and durability. The cute design and fluffy texture make it perfect for snuggling and play. Whether you're looking for a fun gift or a cozy companion, this sheep plush toy is sure to bring a smile to your face.",
+  imageURL: "https://images.pexels.com/photos/12211/pexels-photo-12211.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  imageDescription: "A white sheep plush toy",
+  category: "toys"
+});
+
+productList.push({
+  name: "Bike",
+  price: 120,
+  description: 'Discover new trails and conquer challenging terrains with our "Adventure Explorer" All-Terrain Mountain Bike. Designed for cycling enthusiasts seeking thrilling adventures, this bike combines exceptional performance with a rugged and stylish design.',
+  imageURL:
+    "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+  imageDescription: "A bike",
+  category: "others"
+});
+
+productList.push({
+  name: "Orange and Black Ball",
+  price: 12,
+  description: "Get ready for hours of fun with this orange and black ball. Made with high-quality materials, this ball offers exceptional durability and bounce. The bright colors and unique design make it perfect for outdoor games and sports. Whether you're playing catch with friends or practicing your soccer skills, this ball is sure to provide endless entertainment.",
+  imageURL: "https://images.pexels.com/photos/2671953/pexels-photo-2671953.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  imageDescription: "An orange and black ball",
+  category: "others"
+});
+
+productList.push({
+  name: "Black and White Basketball Ball",
+  price: 15,
+  description: "Take your game to the next level with this black and white basketball ball. Made with high-quality materials, this ball offers exceptional grip and bounce. The classic design and durable construction make it perfect for outdoor games and sports. Whether you're shooting hoops with friends or practicing your skills, this ball is sure to elevate your game.",
+  imageURL: "https://images.pexels.com/photos/12269654/pexels-photo-12269654.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  imageDescription: "A black and white basketball ball",
+  category: "others"
+});
+
+productList.push({
+  name: "Two 2 Kg. Blue Hex Dumbbells",
+  price: 20,
+  description: "Get fit and stay healthy with this set of two 2 kg. blue hex dumbbells. Made with high-quality materials, these dumbbells offer exceptional durability and comfort. The hexagonal design prevents rolling and ensures stability during workouts. Whether you're strength training or toning your muscles, these dumbbells are the perfect addition to your home gym.",
+  imageURL: "https://images.pexels.com/photos/39671/physiotherapy-weight-training-dumbbell-exercise-balls-39671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  imageDescription: "Two 2 Kg. Blue Hex Dumbbells",
+  category: "others"
 });
 
 function displayProductsOnHome(productList) {
