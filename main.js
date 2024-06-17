@@ -4,6 +4,7 @@ const mobileMenu = document.querySelector("#menu-mobile");
 const mobileMenuCloseIcon = document.querySelector("#menu-mobile-close-icon");
 const navbarLinksMobile = [...document.getElementsByClassName("menu-mobile__category-link")]; // Mobile
 const navbarLinks = [...document.getElementsByClassName("navbar__link")]; // Desktop
+const yardSaleLogo = document.querySelector("#yard-sale-logo");
 const shoppingCartArrowLeftIconMobile = document.querySelector("#sp-cart-aside-arrow-left-icon-mobile");
 const shoppingCartIcon = document.querySelector("#shopping-cart-icon");
 const shoppingCartNumberOfProducts = document.querySelector("#shopping-cart-number-of-products");
@@ -48,6 +49,16 @@ barsIcon.addEventListener("click", () => {
 // Close mobile menu by clicking on the close icon
 mobileMenuCloseIcon.addEventListener("click", () => {
   hideElement(mobileMenu);
+  addScrollingToBody();
+});
+
+// Close any open element by clicking on the logo
+yardSaleLogo.addEventListener("click", () => {
+  closeIfIsOpen(mobileMenu, "inactive");
+  closeIfIsOpen(productDetailsAside, "inactive");
+  closeIfIsOpen(shoppingCartAside, "inactive");
+  closeIfIsOpen(desktopMenu, "inactive");
+  navbarIconExpand.classList.remove("navbar__icon-expand--inverted");
   addScrollingToBody();
 });
 
@@ -127,6 +138,7 @@ function hideElement(element) {
   element.classList.add("inactive");
 }
 
+// Add scrolling to the body when closing an element
 function addScrollingToBody() {
   document.body.classList.remove("no-scrolling");
   document.body.removeAttribute("class");

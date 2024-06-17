@@ -335,7 +335,6 @@ body {
   height: 100vh;
   max-height: 100vh;
   overflow-y: auto;
-  padding-bottom: 60px;
 }
 
 .product-container__img-container {
@@ -419,7 +418,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 120px;
   border: none;
   border-radius: 6px;
   font-family: inherit;
@@ -518,7 +517,7 @@ body {
   }
 }
 
-@media (width >= 1024px) {
+@media (width >= 1200px) {
   body {
     height: 100vh;
   }
@@ -549,6 +548,7 @@ body {
   .navbar__logo {
     width: 144px;
     height: 30px;
+    cursor: pointer;
   }
 
   .navbar__categories {
