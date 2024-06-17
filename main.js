@@ -408,6 +408,13 @@ function displayProductsOnHome(productList) {
 
       alert("Product added successfully! ✅");
     }
+
+    if (addedToCartProducts[productId]) {
+      addToCartIcon.setAttribute("src", "./assets/icons/bt_added_to_cart.svg");
+      addToCartIcon.classList.replace("products-container__add-to-cart-icon", "products-container__added-to-cart-icon");
+      addToCartIcon.setAttribute("alt", "Added to cart icon");
+      addToCartIconContainer.classList.add("disabled");
+    }
   }
 }
 
