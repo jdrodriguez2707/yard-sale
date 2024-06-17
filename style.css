@@ -23,7 +23,6 @@ html {
 
 body {
   font-family: "Quicksand", sans-serif;
-  height: 100vh;
 }
 
 /* Styles for desktop screens */
@@ -196,7 +195,7 @@ body {
   display: grid;
   justify-items: center;
   position: fixed;
-  top: 57px;
+  top: 54px;
   width: 100%;
   min-height: 100%;
   max-height: 100%;
@@ -274,6 +273,7 @@ body {
 .shopping-cart__product-name {
   margin-right: 4px;
   text-wrap: wrap;
+  text-align: left;
   font-size: 1.4rem;
   font-weight: 400;
   color: var(--very-light-pink);
@@ -329,13 +329,13 @@ body {
 .product-container {
   display: grid;
   justify-items: center;
-  position: absolute;
+  position: fixed;
   width: 100%;
-  height: auto;
-  min-height: 100%;
   background-color: var(--white);
-  max-height: 100%;
+  height: 100vh;
+  max-height: 100vh;
   overflow-y: auto;
+  padding-bottom: 60px;
 }
 
 .product-container__img-container {
@@ -519,6 +519,10 @@ body {
 }
 
 @media (width >= 1024px) {
+  body {
+    height: 100vh;
+  }
+
   .navbar {
     padding: 12px 52px;
   }
@@ -625,7 +629,6 @@ body {
     border-radius: 5px;
     max-width: 400px;
     box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.12);
-    padding-bottom: 60px;
   }
 
   .product-container__img-container {

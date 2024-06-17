@@ -105,6 +105,7 @@ shoppingCartArrowLeftIcon.addEventListener("click", () => {
 // Close product details aside by clicking on the close icon
 productDetailsCloseIcon.addEventListener("click", () => {
   hideElement(productDetailsAside);
+  addScrollingToBody();
 });
 
 // Toggle class on an element
@@ -322,6 +323,7 @@ function displayProductsOnHome(productList) {
       closeIfIsOpen(shoppingCartAside, "inactive");
       closeIfIsOpen(desktopMenu, "inactive");
       navbarIconExpand.classList.remove("navbar__icon-expand--inverted");
+      document.body.classList.add("no-scrolling");
     });
 
     productImageContainer.appendChild(productImage);
