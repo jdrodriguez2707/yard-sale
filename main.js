@@ -34,18 +34,27 @@ const addedToCartProducts = {}; // Save products added to the shopping cart
 barsIcon.addEventListener("click", () => {
   closeIfIsOpen(shoppingCartAside, "inactive");
   toggleElementWithClass(mobileMenu, "inactive");
-  toggleElementWithClass(document.body, "no-scrolling"); // Avoid scrolling in the background the menu mobile is open
+
+  if (!mobileMenu.classList.contains("inactive")) {
+    // Avoid scrolling in the background the menu mobile is open
+    document.body.classList.add("no-scrolling"); 
+  } else {
+    addScrollingToBody();
+  }
+
   closeIfIsOpen(productDetailsAside, "inactive");
 });
 
 // Close mobile menu by clicking on the close icon
 mobileMenuCloseIcon.addEventListener("click", () => {
   hideElement(mobileMenu);
+  addScrollingToBody();
 });
 
 // Close shopping cart aside on mobile by clicking on the arrow left icon
 shoppingCartArrowLeftIconMobile.addEventListener("click", () => {
   hideElement(shoppingCartAside);
+  addScrollingToBody();
 });
 
 // Handle click on shopping cart icon
@@ -55,7 +64,12 @@ shoppingCartIcon.addEventListener("click", () => {
   closeIfIsOpen(productDetailsAside, "inactive");
   navbarIconExpand.classList.remove("navbar__icon-expand--inverted");
   toggleElementWithClass(shoppingCartAside, "inactive");
-  toggleElementWithClass(document.body, "no-scrolling");
+
+  if (!shoppingCartAside.classList.contains("inactive")) {
+    document.body.classList.add("no-scrolling");
+  } else {
+    addScrollingToBody();
+  }
 });
 
 // Handle click on navbar email
@@ -78,12 +92,14 @@ document.body.addEventListener("click", (event) => {
     closeIfIsOpen(shoppingCartAside, "inactive");
     closeIfIsOpen(desktopMenu, "inactive");
     closeIfIsOpen(productDetailsAside, "inactive");
+    addScrollingToBody();
   }
 });
 
 // Close shopping cart aside by clicking on the arrow left icon
 shoppingCartArrowLeftIcon.addEventListener("click", () => {
   hideElement(shoppingCartAside);
+  addScrollingToBody();
 });
 
 // Close product details aside by clicking on the close icon
@@ -108,6 +124,11 @@ function closeIfIsOpen(element, className) {
 // Hide an element directly
 function hideElement(element) {
   element.classList.add("inactive");
+}
+
+function addScrollingToBody() {
+  document.body.classList.remove("no-scrolling");
+  document.body.removeAttribute("class");
 }
 
 const productList = [];
@@ -491,6 +512,7 @@ function filterProductsOnMobile() {
         productContainer.innerHTML = ""; // Remove other products in the home to show only filtered products
         displayProductsOnHome(productList);
         hideElement(mobileMenu);
+        addScrollingToBody();
       });
     } else {
       navbarLinkMobile.addEventListener("click", (event) => {
@@ -502,6 +524,7 @@ function filterProductsOnMobile() {
         productContainer.innerHTML = "";
         displayProductsOnHome(filteredProducts);
         hideElement(mobileMenu);
+        addScrollingToBody();
       });
     }
   });
