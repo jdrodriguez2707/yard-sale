@@ -380,6 +380,7 @@ function displayProductsOnHome(productList) {
     addToCartIcon.classList.add("products-container__add-to-cart-icon");
     addToCartIcon.setAttribute("src", "./assets/icons/bt_add_to_cart.svg");
     addToCartIcon.setAttribute("alt", "Add to cart icon");
+    addToCartIcon.setAttribute("data-product-id", productId);
 
     addToCartIconContainer.appendChild(addToCartIcon);
     productInfo.append(productInfoDiv, addToCartIconContainer);
@@ -499,6 +500,8 @@ function displayProductsOnShoppingCart(
 
     // Update the number of products in the shopping cart when removing a product from the shopping cart aside
     shoppingCartNumberOfProducts.innerText--;
+
+    updateAddToCartButtonsState();
   });
 
   const shoppingCartDeleteIcon = document.createElement("img");
@@ -520,6 +523,24 @@ function displayProductsOnShoppingCart(
   // Update the total to pay when adding a product to the shopping cart aside
   totalToPay += productPrice;
   shoppingCartTotalValue.innerText = `$${totalToPay}`;
+}
+
+function updateAddToCartButtonsState() {
+  const allAddToCartIcons = document.querySelectorAll('.products-container__add-to-cart-icon, .products-container__added-to-cart-icon');
+  allAddToCartIcons.forEach((icon) => {
+    const productId = icon.getAttribute('data-product-id');
+    if (addedToCartProducts[productId]) {
+      icon.setAttribute("src", "./assets/icons/bt_added_to_cart.svg");
+      icon.classList.replace("products-container__add-to-cart-icon", "products-container__added-to-cart-icon");
+      icon.setAttribute("alt", "Added to cart icon");
+      icon.closest('.products-container__icon-container').classList.add("disabled");
+    } else {
+      icon.setAttribute("src", "./assets/icons/bt_add_to_cart.svg");
+      icon.classList.replace("products-container__added-to-cart-icon", "products-container__add-to-cart-icon");
+      icon.setAttribute("alt", "Add to cart icon");
+      icon.closest('.products-container__icon-container').classList.remove("disabled");
+    }
+  });
 }
 
 displayProductsOnHome(productList);
