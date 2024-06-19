@@ -575,7 +575,7 @@ function filterProductsOnMobile() {
 filterProductsOnMobile();
 
 // Filter products from navbar menu on desktop
-const mediaQuery = window.matchMedia("(min-width: 1024px)");
+const mediaQuery = window.matchMedia("(min-width: 1200px)");
 
 // Add necessary event listeners
 function setupEventListeners() {

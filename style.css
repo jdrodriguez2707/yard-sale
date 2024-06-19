@@ -646,7 +646,7 @@ body {
   }
 }
 
-@media (width < 1024px) {
+@media (width < 1200px) {
   .menu-desktop {
     display: none;
   }
