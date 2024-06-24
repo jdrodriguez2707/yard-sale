@@ -1,3 +1,5 @@
+"use strict";
+
 // Select DOM elements
 const barsIcon = document.querySelector("#bars-icon");
 const mobileMenu = document.querySelector("#menu-mobile");
@@ -601,6 +603,8 @@ function handleAllClick(event) {
   event.preventDefault();
   productContainer.innerHTML = "";
   displayProductsOnHome(productList);
+  hideElement(desktopMenu);
+  navbarIconExpand.classList.remove("navbar__icon-expand--inverted");
 }
 
 // Filter products by category
@@ -610,6 +614,8 @@ function handleCategoryClick(event) {
   const filteredProducts = productList.filter((product) => product.category === navbarLink.textContent.toLowerCase());
   productContainer.innerHTML = "";
   displayProductsOnHome(filteredProducts);
+  hideElement(desktopMenu);
+  navbarIconExpand.classList.remove("navbar__icon-expand--inverted");
 }
 
 // Configure or remove event listeners depending on wether the media query matches or not
