@@ -105,6 +105,7 @@ document.body.addEventListener("click", (event) => {
     closeIfIsOpen(shoppingCartAside, "inactive");
     closeIfIsOpen(desktopMenu, "inactive");
     closeIfIsOpen(productDetailsAside, "inactive");
+    navbarIconExpand.classList.remove("navbar__icon-expand--inverted");
     addScrollingToBody();
   }
 });

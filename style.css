@@ -53,6 +53,10 @@ body {
   user-select: none;
 }
 
+.navbar__icon-expand {
+  transition: transform 0.2s;
+}
+
 .navbar__icon-expand--inverted {
   transform: rotate(180deg);
 }
@@ -564,7 +568,7 @@ body {
     border: 2px solid transparent;
     border-radius: 10px;
     padding: 2px 6px;
-    transition: border-color 0.3s;
+    transition: color 0.2s, border-color 0.2s;
     font-size: var(--sm);
     color: var(--very-light-pink);
     text-decoration: none;
