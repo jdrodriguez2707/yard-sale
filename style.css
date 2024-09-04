@@ -548,6 +548,10 @@ body {
     height: 100vh;
   }
 
+  .no-scrolling {
+    overflow: auto;
+  }
+
   .navbar {
     padding: 12px 52px;
   }
