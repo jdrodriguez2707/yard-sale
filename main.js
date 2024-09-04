@@ -36,9 +36,9 @@ const addedToCartProducts = {}; // Save products added to the shopping cart
 // Handle click on mobile menu icon
 barsIcon.addEventListener("click", () => {
   closeIfIsOpen(shoppingCartAside, "inactive");
-  toggleElementWithClass(mobileMenu, "inactive");
+  toggleElementWithClass(mobileMenu, "menu-mobile--active");
 
-  if (!mobileMenu.classList.contains("inactive")) {
+  if (!mobileMenu.classList.contains("menu-mobile--active")) {
     // Avoid scrolling in the background the menu mobile is open
     document.body.classList.add("no-scrolling"); 
   } else {
@@ -50,13 +50,13 @@ barsIcon.addEventListener("click", () => {
 
 // Close mobile menu by clicking on the close icon
 mobileMenuCloseIcon.addEventListener("click", () => {
-  hideElement(mobileMenu);
+  mobileMenu.classList.remove("menu-mobile--active");
   addScrollingToBody();
 });
 
 // Close any open element by clicking on the logo
 yardSaleLogo.addEventListener("click", () => {
-  closeIfIsOpen(mobileMenu, "inactive");
+  mobileMenu.classList.remove("menu-mobile--active");
   closeIfIsOpen(productDetailsAside, "inactive");
   closeIfIsOpen(shoppingCartAside, "inactive");
   closeIfIsOpen(desktopMenu, "inactive");
@@ -72,7 +72,7 @@ shoppingCartArrowLeftIconMobile.addEventListener("click", () => {
 
 // Handle click on shopping cart icon
 shoppingCartIcon.addEventListener("click", () => {
-  closeIfIsOpen(mobileMenu, "inactive");
+  mobileMenu.classList.remove("menu-mobile--active");
   closeIfIsOpen(desktopMenu, "inactive");
   closeIfIsOpen(productDetailsAside, "inactive");
   navbarIconExpand.classList.remove("navbar__icon-expand--inverted");
@@ -556,7 +556,7 @@ function filterProductsOnMobile() {
         event.preventDefault(); // Prevent the page from reloading when clicking on the links
         productContainer.innerHTML = ""; // Remove other products in the home to show only filtered products
         displayProductsOnHome(productList);
-        hideElement(mobileMenu);
+        mobileMenu.classList.remove("menu-mobile--active");
         addScrollingToBody();
       });
     } else {
@@ -568,7 +568,7 @@ function filterProductsOnMobile() {
   
         productContainer.innerHTML = "";
         displayProductsOnHome(filteredProducts);
-        hideElement(mobileMenu);
+        mobileMenu.classList.remove("menu-mobile--active");
         addScrollingToBody();
       });
     }
