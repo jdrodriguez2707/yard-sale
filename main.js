@@ -38,9 +38,9 @@ barsIcon.addEventListener("click", () => {
   shoppingCartAside.classList.remove("active");
   toggleElementWithClass(mobileMenu, "active");
 
-  if (!mobileMenu.classList.contains("active")) {
+  if (mobileMenu.classList.contains("active")) {    
     // Avoid scrolling in the background the menu mobile is open
-    document.body.classList.add("no-scrolling"); 
+    document.body.classList.add("no-scrolling");
   } else {
     addScrollingToBody();
   }
@@ -78,7 +78,7 @@ shoppingCartIcon.addEventListener("click", () => {
   navbarIconExpand.classList.remove("navbar__icon-expand--inverted");
   toggleElementWithClass(shoppingCartAside, "active");
 
-  if (!shoppingCartAside.classList.contains("active")) {
+  if (shoppingCartAside.classList.contains("active")) {
     document.body.classList.add("no-scrolling");
   } else {
     addScrollingToBody();
@@ -97,14 +97,15 @@ navbarEmail.addEventListener("click", () => {
 document.body.addEventListener("click", (event) => {
   if (
     // Excluded areas for clicking
-    !event.target.closest(".navbar") &&
+    !event.target.closest(".navbar__icon") &&
+    !event.target.closest(".navbar__right") &&
     !event.target.closest(".aside-container") &&
     !event.target.closest(".product-container") &&
     !event.target.closest(".products-container__product-card")
   ) {
     shoppingCartAside.classList.remove("active");
     desktopMenu.classList.remove("active");
-    closeIfIsOpen(productDetailsAside, "inactive");
+    productDetailsAside.classList.remove("active");
     navbarIconExpand.classList.remove("navbar__icon-expand--inverted");
     addScrollingToBody();
   }
@@ -338,7 +339,7 @@ function displayProductsOnHome(productList) {
       shoppingCartAside.classList.remove("active");
       desktopMenu.classList.remove("active");
       navbarIconExpand.classList.remove("navbar__icon-expand--inverted");
-      document.body.classList.add("no-scrolling");
+      document.body.classList.add("no-scrolling");      
     });
 
     productImageContainer.appendChild(productImage);
@@ -551,7 +552,7 @@ displayProductsOnHome(productList);
 // Filter products from mobile menu 
 function filterProductsOnMobile() {
   navbarLinksMobile.forEach((navbarLinkMobile) => {
-    if (navbarLinkMobile.textContent.toLowerCase() === "all") {
+    if (navbarLinkMobile.textContent.toLowerCase() === "all" || !navbarLinkMobile.textContent) {
       navbarLinkMobile.addEventListener("click", (event) => {
         event.preventDefault(); // Prevent the page from reloading when clicking on the links
         productContainer.innerHTML = ""; // Remove other products in the home to show only filtered products
