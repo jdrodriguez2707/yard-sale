@@ -59,7 +59,7 @@ yardSaleLogo.addEventListener("click", () => {
   mobileMenu.classList.remove("active");
   productDetailsAside.classList.remove("active");
   shoppingCartAside.classList.remove("active");
-  closeIfIsOpen(desktopMenu, "inactive");
+  desktopMenu.classList.remove("active");
   navbarIconExpand.classList.remove("navbar__icon-expand--inverted");
   addScrollingToBody();
 });
@@ -73,7 +73,7 @@ shoppingCartArrowLeftIconMobile.addEventListener("click", () => {
 // Handle click on shopping cart icon
 shoppingCartIcon.addEventListener("click", () => {
   mobileMenu.classList.remove("active");
-  closeIfIsOpen(desktopMenu, "inactive");
+  desktopMenu.classList.remove("active");
   productDetailsAside.classList.remove("active");
   navbarIconExpand.classList.remove("navbar__icon-expand--inverted");
   toggleElementWithClass(shoppingCartAside, "active");
@@ -87,10 +87,10 @@ shoppingCartIcon.addEventListener("click", () => {
 
 // Handle click on navbar email
 navbarEmail.addEventListener("click", () => {
-  closeIfIsOpen(shoppingCartAside, "inactive");
-  toggleElementWithClass(desktopMenu, "inactive");
+  shoppingCartAside.classList.remove("active");
+  toggleElementWithClass(desktopMenu, "active");
   toggleElementWithClass(navbarIconExpand, "navbar__icon-expand--inverted");
-  closeIfIsOpen(productDetailsAside, "inactive");
+  productDetailsAside.classList.remove("active");
 });
 
 // Close window if they're open by clicking anywhere in the body without including certain areas
@@ -103,7 +103,7 @@ document.body.addEventListener("click", (event) => {
     !event.target.closest(".products-container__product-card")
   ) {
     shoppingCartAside.classList.remove("active");
-    closeIfIsOpen(desktopMenu, "inactive");
+    desktopMenu.classList.remove("active");
     closeIfIsOpen(productDetailsAside, "inactive");
     navbarIconExpand.classList.remove("navbar__icon-expand--inverted");
     addScrollingToBody();
@@ -336,7 +336,7 @@ function displayProductsOnHome(productList) {
       }
 
       shoppingCartAside.classList.remove("active");
-      closeIfIsOpen(desktopMenu, "inactive");
+      desktopMenu.classList.remove("active");
       navbarIconExpand.classList.remove("navbar__icon-expand--inverted");
       document.body.classList.add("no-scrolling");
     });
@@ -604,7 +604,7 @@ function handleAllClick(event) {
   event.preventDefault();
   productContainer.innerHTML = "";
   displayProductsOnHome(productList);
-  hideElement(desktopMenu);
+  desktopMenu.classList.remove("active");
   navbarIconExpand.classList.remove("navbar__icon-expand--inverted");
 }
 
@@ -615,7 +615,7 @@ function handleCategoryClick(event) {
   const filteredProducts = productList.filter((product) => product.category === navbarLink.textContent.toLowerCase());
   productContainer.innerHTML = "";
   displayProductsOnHome(filteredProducts);
-  hideElement(desktopMenu);
+  desktopMenu.classList.remove("active");
   navbarIconExpand.classList.remove("navbar__icon-expand--inverted");
 }
 

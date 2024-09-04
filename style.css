@@ -84,6 +84,10 @@ body {
   height: auto;
   padding: 25px;
   background-color: var(--white);
+  opacity: 0;
+  transform: translateY(-20px); 
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
 }
 
 .menu-desktop__menu-options {
