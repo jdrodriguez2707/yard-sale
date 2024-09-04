@@ -216,6 +216,16 @@ body {
   overflow-y: auto;
   background: #fff;
   user-select: none;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.5s ease, transform 0.5s ease; 
+  pointer-events: none;
+}
+
+.aside-container--active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .shopping-cart__arrow-left-icon-mobile {
