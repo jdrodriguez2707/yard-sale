@@ -35,10 +35,10 @@ const addedToCartProducts = {}; // Save products added to the shopping cart
 
 // Handle click on mobile menu icon
 barsIcon.addEventListener("click", () => {
-  shoppingCartAside.classList.remove("aside-container--active");
-  toggleElementWithClass(mobileMenu, "menu-mobile--active");
+  shoppingCartAside.classList.remove("active");
+  toggleElementWithClass(mobileMenu, "active");
 
-  if (!mobileMenu.classList.contains("menu-mobile--active")) {
+  if (!mobileMenu.classList.contains("active")) {
     // Avoid scrolling in the background the menu mobile is open
     document.body.classList.add("no-scrolling"); 
   } else {
@@ -50,15 +50,15 @@ barsIcon.addEventListener("click", () => {
 
 // Close mobile menu by clicking on the close icon
 mobileMenuCloseIcon.addEventListener("click", () => {
-  mobileMenu.classList.remove("menu-mobile--active");
+  mobileMenu.classList.remove("active");
   addScrollingToBody();
 });
 
 // Close any open element by clicking on the logo
 yardSaleLogo.addEventListener("click", () => {
-  mobileMenu.classList.remove("menu-mobile--active");
+  mobileMenu.classList.remove("active");
   closeIfIsOpen(productDetailsAside, "inactive");
-  shoppingCartAside.classList.remove("aside-container--active");
+  shoppingCartAside.classList.remove("active");
   closeIfIsOpen(desktopMenu, "inactive");
   navbarIconExpand.classList.remove("navbar__icon-expand--inverted");
   addScrollingToBody();
@@ -66,19 +66,19 @@ yardSaleLogo.addEventListener("click", () => {
 
 // Close shopping cart aside on mobile by clicking on the arrow left icon
 shoppingCartArrowLeftIconMobile.addEventListener("click", () => {
-  shoppingCartAside.classList.remove("aside-container--active");
+  shoppingCartAside.classList.remove("active");
   addScrollingToBody();
 });
 
 // Handle click on shopping cart icon
 shoppingCartIcon.addEventListener("click", () => {
-  mobileMenu.classList.remove("menu-mobile--active");
+  mobileMenu.classList.remove("active");
   closeIfIsOpen(desktopMenu, "inactive");
   closeIfIsOpen(productDetailsAside, "inactive");
   navbarIconExpand.classList.remove("navbar__icon-expand--inverted");
-  toggleElementWithClass(shoppingCartAside, "aside-container--active");
+  toggleElementWithClass(shoppingCartAside, "active");
 
-  if (!shoppingCartAside.classList.contains("aside-container--active")) {
+  if (!shoppingCartAside.classList.contains("active")) {
     document.body.classList.add("no-scrolling");
   } else {
     addScrollingToBody();
@@ -102,7 +102,7 @@ document.body.addEventListener("click", (event) => {
     !event.target.closest(".product-container") &&
     !event.target.closest(".products-container__product-card")
   ) {
-    shoppingCartAside.classList.remove("aside-container--active");
+    shoppingCartAside.classList.remove("active");
     closeIfIsOpen(desktopMenu, "inactive");
     closeIfIsOpen(productDetailsAside, "inactive");
     navbarIconExpand.classList.remove("navbar__icon-expand--inverted");
@@ -112,7 +112,7 @@ document.body.addEventListener("click", (event) => {
 
 // Close shopping cart aside by clicking on the arrow left icon
 shoppingCartArrowLeftIcon.addEventListener("click", () => {
-  shoppingCartAside.classList.remove("aside-container--active");
+  shoppingCartAside.classList.remove("active");
   addScrollingToBody();
 });
 
@@ -335,7 +335,7 @@ function displayProductsOnHome(productList) {
         productDetailsAddToCartButton.classList.remove("disabled");
       }
 
-      shoppingCartAside.classList.remove("aside-container--active");
+      shoppingCartAside.classList.remove("active");
       closeIfIsOpen(desktopMenu, "inactive");
       navbarIconExpand.classList.remove("navbar__icon-expand--inverted");
       document.body.classList.add("no-scrolling");
@@ -556,7 +556,7 @@ function filterProductsOnMobile() {
         event.preventDefault(); // Prevent the page from reloading when clicking on the links
         productContainer.innerHTML = ""; // Remove other products in the home to show only filtered products
         displayProductsOnHome(productList);
-        mobileMenu.classList.remove("menu-mobile--active");
+        mobileMenu.classList.remove("active");
         addScrollingToBody();
       });
     } else {
@@ -568,7 +568,7 @@ function filterProductsOnMobile() {
   
         productContainer.innerHTML = "";
         displayProductsOnHome(filteredProducts);
-        mobileMenu.classList.remove("menu-mobile--active");
+        mobileMenu.classList.remove("active");
         addScrollingToBody();
       });
     }

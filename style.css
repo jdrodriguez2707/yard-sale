@@ -136,12 +136,6 @@ body {
   pointer-events: none;
 }
 
-.menu-mobile--active {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
 .menu-mobile__close-icon {
   position: absolute;
   top: 20px;
@@ -220,12 +214,6 @@ body {
   transform: translateY(-20px);
   transition: opacity 0.5s ease, transform 0.5s ease; 
   pointer-events: none;
-}
-
-.aside-container--active {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
 }
 
 .shopping-cart__arrow-left-icon-mobile {
@@ -516,6 +504,12 @@ body {
 .home-sign-in {
   margin: 24px 0;
   padding-bottom: 28px;
+}
+
+.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 /* Hide an element in the DOM when necessary */
