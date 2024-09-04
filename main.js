@@ -35,7 +35,7 @@ const addedToCartProducts = {}; // Save products added to the shopping cart
 
 // Handle click on mobile menu icon
 barsIcon.addEventListener("click", () => {
-  shoppingCartAside.classList.remove("active");
+  closeIfIsOpen(shoppingCartAside, "active");
   toggleElementWithClass(mobileMenu, "active");
 
   if (mobileMenu.classList.contains("active")) {    
@@ -45,7 +45,7 @@ barsIcon.addEventListener("click", () => {
     addScrollingToBody();
   }
 
-  productDetailsAside.classList.remove("active");
+  closeIfIsOpen(productDetailsAside, "active");
 });
 
 // Close mobile menu by clicking on the close icon
@@ -56,10 +56,10 @@ mobileMenuCloseIcon.addEventListener("click", () => {
 
 // Close any open element by clicking on the logo
 yardSaleLogo.addEventListener("click", () => {
-  mobileMenu.classList.remove("active");
-  productDetailsAside.classList.remove("active");
-  shoppingCartAside.classList.remove("active");
-  desktopMenu.classList.remove("active");
+  closeIfIsOpen(mobileMenu, "active");
+  closeIfIsOpen(productDetailsAside, "active");
+  closeIfIsOpen(shoppingCartAside, "active");
+  closeIfIsOpen(desktopMenu, "active");
   navbarIconExpand.classList.remove("navbar__icon-expand--inverted");
   addScrollingToBody();
 });
@@ -72,9 +72,9 @@ shoppingCartArrowLeftIconMobile.addEventListener("click", () => {
 
 // Handle click on shopping cart icon
 shoppingCartIcon.addEventListener("click", () => {
-  mobileMenu.classList.remove("active");
-  desktopMenu.classList.remove("active");
-  productDetailsAside.classList.remove("active");
+  closeIfIsOpen(mobileMenu, "active");
+  closeIfIsOpen(desktopMenu, "active");
+  closeIfIsOpen(productDetailsAside, "active");
   navbarIconExpand.classList.remove("navbar__icon-expand--inverted");
   toggleElementWithClass(shoppingCartAside, "active");
 
@@ -87,7 +87,7 @@ shoppingCartIcon.addEventListener("click", () => {
 
 // Handle click on navbar email
 navbarEmail.addEventListener("click", () => {
-  shoppingCartAside.classList.remove("active");
+  closeIfIsOpen(shoppingCartAside, "active");
   toggleElementWithClass(desktopMenu, "active");
   toggleElementWithClass(navbarIconExpand, "navbar__icon-expand--inverted");
   productDetailsAside.classList.remove("active");
@@ -103,9 +103,9 @@ document.body.addEventListener("click", (event) => {
     !event.target.closest(".product-container") &&
     !event.target.closest(".products-container__product-card")
   ) {
-    shoppingCartAside.classList.remove("active");
-    desktopMenu.classList.remove("active");
-    productDetailsAside.classList.remove("active");
+    closeIfIsOpen(shoppingCartAside, "active");
+    closeIfIsOpen(desktopMenu, "active");
+    closeIfIsOpen(productDetailsAside, "active");
     navbarIconExpand.classList.remove("navbar__icon-expand--inverted");
     addScrollingToBody();
   }
@@ -132,8 +132,8 @@ function toggleElementWithClass(element, className) {
 // Close or hide an element if it is open
 function closeIfIsOpen(element, className) {
   const isElementClosed = element.classList.contains(className);
-  if (!isElementClosed) {
-    element.classList.add(className); // Hide element by adding the 'inactive' class
+  if (isElementClosed) {
+    element.classList.remove(className); // Hide element by removing the 'active' class
   }
 }
 
@@ -336,8 +336,8 @@ function displayProductsOnHome(productList) {
         productDetailsAddToCartButton.classList.remove("disabled");
       }
 
-      shoppingCartAside.classList.remove("active");
-      desktopMenu.classList.remove("active");
+      closeIfIsOpen(shoppingCartAside, "active");
+      closeIfIsOpen(desktopMenu, "active");
       navbarIconExpand.classList.remove("navbar__icon-expand--inverted");
       document.body.classList.add("no-scrolling");      
     });
