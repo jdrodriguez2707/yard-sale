@@ -347,6 +347,10 @@ body {
   height: 100vh;
   max-height: 100vh;
   overflow-y: auto;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.5s ease, transform 0.5s ease; 
+  pointer-events: none;
 }
 
 .product-container__img-container {

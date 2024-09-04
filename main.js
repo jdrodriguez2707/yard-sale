@@ -45,7 +45,7 @@ barsIcon.addEventListener("click", () => {
     addScrollingToBody();
   }
 
-  closeIfIsOpen(productDetailsAside, "inactive");
+  productDetailsAside.classList.remove("active");
 });
 
 // Close mobile menu by clicking on the close icon
@@ -57,7 +57,7 @@ mobileMenuCloseIcon.addEventListener("click", () => {
 // Close any open element by clicking on the logo
 yardSaleLogo.addEventListener("click", () => {
   mobileMenu.classList.remove("active");
-  closeIfIsOpen(productDetailsAside, "inactive");
+  productDetailsAside.classList.remove("active");
   shoppingCartAside.classList.remove("active");
   closeIfIsOpen(desktopMenu, "inactive");
   navbarIconExpand.classList.remove("navbar__icon-expand--inverted");
@@ -74,7 +74,7 @@ shoppingCartArrowLeftIconMobile.addEventListener("click", () => {
 shoppingCartIcon.addEventListener("click", () => {
   mobileMenu.classList.remove("active");
   closeIfIsOpen(desktopMenu, "inactive");
-  closeIfIsOpen(productDetailsAside, "inactive");
+  productDetailsAside.classList.remove("active");
   navbarIconExpand.classList.remove("navbar__icon-expand--inverted");
   toggleElementWithClass(shoppingCartAside, "active");
 
@@ -118,7 +118,7 @@ shoppingCartArrowLeftIcon.addEventListener("click", () => {
 
 // Close product details aside by clicking on the close icon
 productDetailsCloseIcon.addEventListener("click", () => {
-  hideElement(productDetailsAside);
+  productDetailsAside.classList.remove("active");
   addScrollingToBody();
 });
 
@@ -307,7 +307,7 @@ function displayProductsOnHome(productList) {
 
     // Show product details aside when clicking on the product image
     productImage.addEventListener("click", () => {
-      productDetailsAside.classList.remove("inactive");
+      productDetailsAside.classList.add("active");
       productDetailsImage.setAttribute("src", productImage.src);
       productDetailsImage.setAttribute("alt", productImage.alt);
       productDetailsPrice.innerText = productPrice.textContent;
