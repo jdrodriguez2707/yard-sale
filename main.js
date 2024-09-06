@@ -405,6 +405,7 @@ function displayProductsOnHome(productList) {
 
       // Hide the empty shopping cart message
       hideElement(shoppingCartEmptyContainer);
+      shoppingCartEmptyContainer.classList.remove("fade-in");
 
       displayProductsOnShoppingCart(
         productId,
@@ -484,9 +485,10 @@ function displayProductsOnShoppingCart(
     if (!shoppingCartProducts.length) {
       setTimeout(() => {
         shoppingCartEmptyContainer.classList.remove("inactive");
-        hideElement(shoppingCartTotalToPay);
-        hideElement(shoppingCartCheckoutButton);
+        shoppingCartEmptyContainer.classList.add("fade-in");
       }, 500); 
+      shoppingCartTotalToPay.classList.add("fade-out");
+      shoppingCartCheckoutButton.classList.add("fade-out");
     }
 
     // Mark the product as not added to the shopping cart
@@ -524,8 +526,11 @@ function displayProductsOnShoppingCart(
   shoppingCartProducts.push(shoppingCartProductDiv);
 
   shoppingCartTotalToPay.classList.remove("inactive");
+  shoppingCartTotalToPay.classList.remove("fade-out");
   shoppingCartCheckoutButton.classList.remove("inactive");
-  
+  shoppingCartCheckoutButton.classList.remove("fade-out");
+
+
   // Update the total to pay when adding a product to the shopping cart aside
   totalToPay += productPrice;
   shoppingCartTotalValue.innerText = `$${totalToPay}`;

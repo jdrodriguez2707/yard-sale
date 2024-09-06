@@ -690,7 +690,11 @@ body {
 }
 
 .fade-out {
-  animation: fade-out 0.5s forwards;
+  animation: fade-out 0.5s both;
+}
+
+.fade-in {
+  animation: fade-in 0.5s both;
 }
 
 @keyframes fade-out {
@@ -698,5 +702,19 @@ body {
     display: none;
     opacity: 0;
     transform: translateX(-20px);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    display: none;
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
   }
 }
