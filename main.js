@@ -475,16 +475,18 @@ function displayProductsOnShoppingCart(
   // Remove product from the shopping cart aside when clicking on the delete icon
   shoppingCartDeleteIconContainer.addEventListener("click", () => {
     // Remove the product from the shopping cart aside and update the total to pay
-    hideElement(shoppingCartProductDiv);
+    shoppingCartProductDiv.classList.add("fade-out");
     totalToPay -= productPrice;
     shoppingCartTotalValue.innerText = `$${totalToPay}`;
 
     // Remove the product from the shopping cart products array to check if the shopping cart becomes empty later on and show the empty shopping cart message
     shoppingCartProducts.pop();
     if (!shoppingCartProducts.length) {
-      shoppingCartEmptyContainer.classList.remove("inactive");
-      hideElement(shoppingCartTotalToPay);
-      hideElement(shoppingCartCheckoutButton);
+      setTimeout(() => {
+        shoppingCartEmptyContainer.classList.remove("inactive");
+        hideElement(shoppingCartTotalToPay);
+        hideElement(shoppingCartCheckoutButton);
+      }, 500); 
     }
 
     // Mark the product as not added to the shopping cart
@@ -495,7 +497,7 @@ function displayProductsOnShoppingCart(
     addToCartIcon.classList.replace("products-container__added-to-cart-icon", "products-container__add-to-cart-icon");
     addToCartIcon.setAttribute("src", "./assets/icons/bt_add_to_cart.svg");
     addToCartIcon.setAttribute("alt", "Add to cart icon");
-    alert("Product removed successfully! ✅");
+    // alert("Product removed successfully! ✅");
 
     if (!addedToCartProducts[productId]) {
       // Enable the add to cart icon in product details aside after removing the product from the shopping cart

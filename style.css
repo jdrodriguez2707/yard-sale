@@ -688,3 +688,15 @@ body {
   transform: translate(0);
   pointer-events: auto;
 }
+
+.fade-out {
+  animation: fade-out 0.5s forwards;
+}
+
+@keyframes fade-out {
+  to {
+    display: none;
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+}
