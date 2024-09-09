@@ -378,6 +378,7 @@ function displayProductsOnHome(productList) {
     // Add product to the shopping cart aside when clicking on the add to cart icon
     addToCartIconContainer.addEventListener("click", () => {
       addProductToShoppingCart(productId);
+
     });
 
     const addToCartIcon = document.createElement("img");
@@ -397,6 +398,9 @@ function displayProductsOnHome(productList) {
 
       // Update the number of products in the shopping cart
       shoppingCartNumberOfProducts.innerText++;
+
+      // Add the shake effect when adding a product to the shopping cart
+      shoppingCartNumberOfProducts.classList.add("shake");
 
       // Change the icon to the added to cart icon
       addToCartIcon.setAttribute("src", "./assets/icons/bt_added_to_cart.svg");

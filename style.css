@@ -75,6 +75,10 @@ body {
   font-weight: bold;
 }
 
+.shake {
+  animation: shake 0.5s 2s 10;
+}
+
 .menu-desktop {
   position: absolute;
   top: 57px;
@@ -725,5 +729,23 @@ body {
     display: flex;
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
