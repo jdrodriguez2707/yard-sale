@@ -492,6 +492,7 @@ body {
   width: var(--product-card-size);
   height: var(--product-card-size);
   user-select: none;
+  cursor: pointer;
 }
 
 .products-container__product-info {
@@ -511,6 +512,14 @@ body {
   margin: 0;
   font-size: var(--sm);
   color: var(--very-light-pink);
+}
+
+.products-container__add-to-cart-icon {
+  transition: transform 0.2s;
+}
+
+.products-container__add-to-cart-icon:hover {
+  transform: scale(1.1);
 }
 
 .home-sign-in {

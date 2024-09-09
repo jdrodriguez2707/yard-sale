@@ -424,7 +424,7 @@ function displayProductsOnHome(productList) {
       // Disable the add to cart icon in product details aside after adding the product to the shopping cart
       productDetailsAddToCartButton.classList.add("disabled");
 
-      alert("Product added successfully! ✅");
+      // alert("Product added successfully! ✅");
     }
 
     if (addedToCartProducts[productId]) {
