@@ -32,6 +32,7 @@ const productDetailsDescription = document.querySelector("#product-details-descr
 const productDetailsAddToCartButton = document.querySelector("#product-details-add-to-cart-button");
 let currentAddToCartListener = null; // Save the current event listener to remove it later
 const addedToCartProducts = {}; // Save products added to the shopping cart
+const feedbackMessage = document.querySelector("#feedback-message");
 
 // Handle click on mobile menu icon
 barsIcon.addEventListener("click", () => {
@@ -378,7 +379,6 @@ function displayProductsOnHome(productList) {
     // Add product to the shopping cart aside when clicking on the add to cart icon
     addToCartIconContainer.addEventListener("click", () => {
       addProductToShoppingCart(productId);
-
     });
 
     const addToCartIcon = document.createElement("img");
@@ -428,7 +428,14 @@ function displayProductsOnHome(productList) {
       // Disable the add to cart icon in product details aside after adding the product to the shopping cart
       productDetailsAddToCartButton.classList.add("disabled");
 
-      // alert("Product added successfully! ✅");
+      // Show feedback message when adding a product to the shopping cart
+      feedbackMessage.style.display = "block";
+      setTimeout(() => {
+        feedbackMessage.classList.remove("fade-in");
+        feedbackMessage.classList.add("fade-out");
+      }, 4000);
+
+      feedbackMessage.classList.add("fade-in");
     }
 
     if (addedToCartProducts[productId]) {

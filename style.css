@@ -15,7 +15,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-
 }
 
 html {
@@ -531,6 +530,19 @@ body {
 .home-sign-in {
   margin: 24px 0;
   padding-bottom: 28px;
+}
+
+.feedback-message {
+  display: none;
+  position: fixed;
+  left: 24px;
+  bottom: 24px;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0px 2px 4px 5px rgba(0, 0, 0, 0.05);
+  font-size: var(--sm);
+  color: #000;
+  background-color: #fff;
 }
 
 /* Hide an element in the DOM when necessary */
