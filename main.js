@@ -429,6 +429,7 @@ function displayProductsOnHome(productList) {
       productDetailsAddToCartButton.classList.add("disabled");
 
       // Show feedback message when adding a product to the shopping cart
+      feedbackMessage.textContent = "Producto añadido con éxito.";
       feedbackMessage.style.display = "block";
       setTimeout(() => {
         feedbackMessage.classList.remove("fade-in");
@@ -510,7 +511,14 @@ function displayProductsOnShoppingCart(
     addToCartIcon.classList.replace("products-container__added-to-cart-icon", "products-container__add-to-cart-icon");
     addToCartIcon.setAttribute("src", "./assets/icons/bt_add_to_cart.svg");
     addToCartIcon.setAttribute("alt", "Add to cart icon");
-    // alert("Product removed successfully! ✅");
+    // Show feedback message when removing a product from the shopping cart
+    feedbackMessage.textContent = "Producto eliminado con éxito.";
+    feedbackMessage.classList.remove("fade-out");
+    feedbackMessage.classList.add("fade-in");
+    setTimeout(() => {
+      feedbackMessage.classList.remove("fade-in");
+      feedbackMessage.classList.add("fade-out");
+    }, 4000);
 
     if (!addedToCartProducts[productId]) {
       // Enable the add to cart icon in product details aside after removing the product from the shopping cart
