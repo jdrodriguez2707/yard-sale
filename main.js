@@ -159,7 +159,7 @@ productList.push({
   description: "MacBook Pro blasts forward with the M3, M3 Pro, and M3 Max chips. Built on 3‑nanometer technology and featuring an all-new GPU architecture, they’re the most advanced chips ever built for a personal computer. And each one brings more pro performance and capability.",
   imageURL: "./assets/images/macbook.jpg",
   imageDescription: "An expensive MacBook",
-  category: "electronics"
+  category: "tecnología"
 });
 
 productList.push({
@@ -169,7 +169,7 @@ productList.push({
   description: "Upgrade your workspace with this high-quality DELL monitor. Featuring a crisp 24-inch Full HD display, this monitor delivers stunning visuals with vibrant colors and sharp details. Ideal for both work and entertainment, it offers excellent viewing angles and a sleek, modern design. Equipped with HDMI and VGA ports, it ensures easy connectivity to various devices. The monitor is in excellent condition, well-maintained, and comes with the original stand and power cable. Perfect for enhancing productivity or enjoying multimedia content. Don't miss out on this great deal!",
   imageURL: "./assets/images/monitor.jpg",
   imageDescription: "A cool PC monitor",
-  category: "electronics"
+  category: "tecnología"
 });
 
 productList.push({
@@ -179,7 +179,7 @@ productList.push({
   description: "A stylish and comfortable black sofa that adds a touch of elegance to any living space. Made with high-quality materials, this sofa offers exceptional durability and support. Perfect for relaxing and entertaining guests, it's the ideal addition to your home decor.",
   imageURL: "./assets/images/black-sofa.jpg",
   imageDescription: "Black Fabric Sectional Sofa Near Glass Window",
-  category: "furniture"
+  category: "muebles"
 });
 
 productList.push({
@@ -189,7 +189,7 @@ productList.push({
   description: "Add a touch of elegance to your living room with this stylish white leather sofa. Made with high-quality materials, this sofa offers exceptional comfort and durability. The sleek design and neutral color make it easy to match with any decor style. Whether you're relaxing with family or entertaining guests, this sofa is the perfect choice for your home.",
   imageURL: "./assets/images/white-leather-sofa.jpg",
   imageDescription: "Two Pillows on White Leather Fainting Couch",
-  category: "furniture"
+  category: "muebles"
 });
 
 productList.push({
@@ -199,7 +199,7 @@ productList.push({
   description: "Upgrade your dining room with this elegant dining table. Made with high-quality materials, this table offers exceptional durability and style. The sleek design and neutral color make it easy to match with any decor style. Whether you're hosting a dinner party or enjoying a family meal, this table is the perfect choice for your home.",
   imageURL: "./assets/images/dinning-table.jpg",
   imageDescription: "A simple dinning table",
-  category: "furniture"
+  category: "muebles"
 });
 
 productList.push({
@@ -209,7 +209,7 @@ productList.push({
   description: "Stay stylish and comfortable with this gray and black striped crew-neck top. Made with high-quality materials, this top offers exceptional comfort and durability. The classic design and neutral colors make it easy to match with any outfit. Whether you're running errands or relaxing at home, this top is the perfect choice for everyday wear.",
   imageURL: "./assets/images/gray-and-black-striped-crew.jpg",
   imageDescription: "A gray and black striped crew-neck top",
-  category: "clothes"
+  category: "ropa"
 });
 
 productList.push({
@@ -219,7 +219,7 @@ productList.push({
   description: "Step out in style with this pair of black dress shoes. Made with high-quality materials, these shoes offer exceptional comfort and durability. The classic design and sleek black color make them easy to match with any outfit. Whether you're heading to the office or a special event, these shoes are the perfect choice for a polished look.",
   imageURL: "./assets/images/pair-of-black-dress-shoes.jpg",
   imageDescription: "A pair of black dress shoes",
-  category: "clothes"
+  category: "ropa"
 });
 
 productList.push({
@@ -229,7 +229,7 @@ productList.push({
   description: "Add a touch of nostalgia to your collection with these Super Mario, Luigi, and Yoshi figurines. Made with high-quality materials, these figurines offer exceptional detail and durability. Whether you're a fan of the classic video game series or simply love collecting unique items, these figurines are the perfect addition to your home decor.",
   imageURL: "./assets/images/super-mario-toys.jpg",
   imageDescription: "Super Mario, Luigi, and Yoshi figurines",
-  category: "toys"
+  category: "juguetes"
 });
 
 productList.push({
@@ -239,7 +239,7 @@ productList.push({
   description: "Let your child's imagination run wild with this set of plastic animal toys. Made with high-quality materials, these toys offer exceptional durability and safety. The bright colors and realistic designs make them perfect for creative play. Whether your child loves animals or simply enjoys imaginative play, these toys are sure to provide hours of entertainment.",
   imageURL: "./assets/images/plastic-animal-toys.jpg",
   imageDescription: "Plastic animal toys",
-  category: "toys"
+  category: "juguetes"
 });
 
 productList.push({
@@ -249,7 +249,7 @@ productList.push({
   description: "Cuddle up with this adorable white sheep plush toy. Made with soft, high-quality materials, this plush toy offers exceptional comfort and durability. The cute design and fluffy texture make it perfect for snuggling and play. Whether you're looking for a fun gift or a cozy companion, this sheep plush toy is sure to bring a smile to your face.",
   imageURL: "./assets/images/white-sheep-plush-toy.jpg",
   imageDescription: "A white sheep plush toy",
-  category: "toys"
+  category: "juguetes"
 });
 
 productList.push({
@@ -259,7 +259,7 @@ productList.push({
   description: 'Discover new trails and conquer challenging terrains with our "Adventure Explorer" All-Terrain Mountain Bike. Designed for cycling enthusiasts seeking thrilling adventures, this bike combines exceptional performance with a rugged and stylish design.',
   imageURL: "./assets/images/bike.jpg",
   imageDescription: "A bike",
-  category: "others"
+  category: "otros"
 });
 
 productList.push({
@@ -269,7 +269,7 @@ productList.push({
   description: "Get ready for hours of fun with this orange and black ball. Made with high-quality materials, this ball offers exceptional durability and bounce. The bright colors and unique design make it perfect for outdoor games and sports. Whether you're playing catch with friends or practicing your soccer skills, this ball is sure to provide endless entertainment.",
   imageURL: "./assets/images/orange-ball.jpg",
   imageDescription: "An orange and black ball",
-  category: "others"
+  category: "otros"
 });
 
 productList.push({
@@ -279,7 +279,7 @@ productList.push({
   description: "Take your game to the next level with this black and white basketball ball. Made with high-quality materials, this ball offers exceptional grip and bounce. The classic design and durable construction make it perfect for outdoor games and sports. Whether you're shooting hoops with friends or practicing your skills, this ball is sure to elevate your game.",
   imageURL: "./assets/images/black-and-white-basketball-ball.jpg",
   imageDescription: "A black and white basketball ball",
-  category: "others"
+  category: "otros"
 });
 
 productList.push({
@@ -289,7 +289,7 @@ productList.push({
   description: "Get fit and stay healthy with this set of two 2 kg. blue hex dumbbells. Made with high-quality materials, these dumbbells offer exceptional durability and comfort. The hexagonal design prevents rolling and ensures stability during workouts. Whether you're strength training or toning your muscles, these dumbbells are the perfect addition to your home gym.",
   imageURL: "./assets/images/dumbbells.jpg",
   imageDescription: "Two 2 Kg. Blue Hex Dumbbells",
-  category: "others"
+  category: "otros"
 });
 
 function displayProductsOnHome(productList) {
@@ -578,7 +578,7 @@ displayProductsOnHome(productList);
 // Filter products from mobile menu 
 function filterProductsOnMobile() {
   navbarLinksMobile.forEach((navbarLinkMobile) => {
-    if (navbarLinkMobile.textContent.toLowerCase() === "all" || !navbarLinkMobile.textContent) {
+    if (navbarLinkMobile.textContent.toLowerCase() === "todo" || !navbarLinkMobile.textContent) {
       navbarLinkMobile.addEventListener("click", (event) => {
         event.preventDefault(); // Prevent the page from reloading when clicking on the links
         productContainer.innerHTML = ""; // Remove other products in the home to show only filtered products
@@ -610,7 +610,7 @@ const mediaQuery = window.matchMedia("(min-width: 1200px)");
 // Add necessary event listeners
 function setupEventListeners() {
   navbarLinks.forEach((navbarLink) => {
-    if (navbarLink.textContent.toLowerCase() === "all") {
+    if (navbarLink.textContent.toLowerCase() === "todo") {
       navbarLink.addEventListener("click", handleAllClick);
     } else {
       navbarLink.addEventListener("click", handleCategoryClick);
